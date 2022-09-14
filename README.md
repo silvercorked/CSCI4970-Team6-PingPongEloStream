@@ -31,6 +31,7 @@ ports:
 
 - `npm install` (this is also a vue project, so need these dependencies)
 - `npm run build` (builds the vue files. Can use `npm run watch` and `npm run dev` to have this run when files are saved)
+- `php artisan storage:link` This will create a symbolic link between the /public/storage location and /storage/app location. This allows us to save files (profile pictures) to /storage/app and access them in the app by linking to http://{our-website=name}/storage/{image-url}
 - (optional) `php artisan db:seed` (seeds the database according to the seeders)
 
 ## Workflow for local development
