@@ -33,3 +33,11 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::get('/testlogin', function() {
+	return Inertia::render('TestLogin');
+});
+
+Route::get('/profile', function() {
+	return Inertia::render('Profile');
+});
