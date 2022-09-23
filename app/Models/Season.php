@@ -11,6 +11,9 @@ use App\Models\Team;
 class Season extends Model {
     use HasFactory;
 
+    public static function current() {
+        return self::latest()->first();
+    }
     public function games() {
         return $this->hasMany(
             Game::class, 'season_id', 'id'
@@ -19,6 +22,6 @@ class Season extends Model {
     public function teams() {
         return $this->belongsToMany(
             Team::class, 'seasonal_elos', 'season_id', 'team_id', 'id', 'id'
-        );
+        )->withPivot('elo');
     }
 }
