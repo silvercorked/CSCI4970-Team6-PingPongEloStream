@@ -12,7 +12,7 @@ defineProps({
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Season #{{ season_number }} Livestream
+                Season #{{ season_number }} games create
             </h2>
         </template>
 
@@ -23,4 +23,4 @@ defineProps({
         </div>
     </AppLayout>
 </template>
-        
+            

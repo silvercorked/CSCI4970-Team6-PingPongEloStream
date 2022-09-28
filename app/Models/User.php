@@ -65,4 +65,5 @@ class User extends Authenticatable {
             Team::class, 'members', 'user_id', 'team_id', 'id', 'id'
         );
     }
+    // has relation to games in which was first server via team1_first_server and team2_first_server
 }

@@ -15,9 +15,9 @@ class Team extends Model {
     use HasFactory;
 
     public function currentElo() {
-        return $this->hasMany(
+        return $this->hasOne(
             SeasonalElo::class, 'team_id', 'id'
-        )->latest()->first();
+        )->latestOfMany();
     }
 
     public function members() {

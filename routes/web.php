@@ -86,7 +86,6 @@ Route::group([], function() {
     Route::get('/leaderboards', [LeaderboardController::class, 'index'])->name('leaderboards');
     Route::get('/games', [GameController::class, 'index'])->name('game.index');
     Route::get('/players', [PlayerController::class, 'index'])->name('player.index');
-
     Route::get('/games/{game_id}', [GameController::class, 'show'])->name('game.show');
     Route::get('/players/{player_id}', [PlayerController::class, 'show'])->name('player.show');
 });
@@ -105,6 +104,8 @@ Route::group(['middleware' => ['auth:sanctum', config('jetstream.auth_session'),
     Route::get('/games/create', [GameController::class, 'create'])->name('game.create');
     Route::get('/games/{game_id}/edit', [GameController::class, 'edit'])->name('game.edit');
     Route::post('/games', [GameController::class, 'store'])->name('game.store');
+    Route::post('/games/play', [GameController::class, 'storeAndPlay'])->name('games.storeAndPlay');
     Route::put('/games/{game_id}', [GameController::class, 'update'])->name('game.update');
-    Route::get('/games/{game_id}/play', [GameController::class, 'playing'])->name('game.playing');
+    Route::get('/games/{game_id}/start-play', [GameController::class, 'play'])->name('game.start');
+    Route::get('/games/{game_id}/playing', [GameController::class, 'playing'])->name('game.playing');
 });

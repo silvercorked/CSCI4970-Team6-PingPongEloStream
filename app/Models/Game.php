@@ -35,7 +35,23 @@ class Game extends Model {
             Team::class, 'games_teams_assoc', 'game_id', 'team_id', 'id', 'id'
         );
     }
+    public function team1FirstServer() {
+        return $this->belongsTo(
+            User::class, 'team1_first_server_id', 'id'
+        );
+    }
+    public function team2FirstServer() {
+        return $this->belongsTo(
+            User::class, 'team2_first_server_id', 'id'
+        );
+    }
 
+    public function team1ServesFirst() {
+        return $this->first_server;
+    }
+    public function team2ServesFirst() {
+        return !$this->first_server;
+    }
     public function team1() {
         return $this->belongsToMany(
             Team::class, 'games_teams_assoc', 'game_id', 'team_id', 'id', 'id'
