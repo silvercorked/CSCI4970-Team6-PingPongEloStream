@@ -41,3 +41,8 @@ Route::get('/testlogin', function() {
 Route::get('/profile', function() {
 	return Inertia::render('Profile');
 });
+
+
+Route::get('/sandbox', function() {
+    return Inertia::render('Sandbox');
+});
