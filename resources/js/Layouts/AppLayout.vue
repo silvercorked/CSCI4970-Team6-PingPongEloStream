@@ -11,6 +11,7 @@ import JetResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
 defineProps({
     title: String,
+    user: Object
 });
 
 const showingNavigationDropdown = ref(false);
@@ -52,9 +53,24 @@ const logout = () => {
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </JetNavLink>
+                                <JetNavLink :href="route('leaderboards')" :active="route().current('leaderboards')">
+                                    Leaderboards
+                                </JetNavLink>
+                                <JetNavLink :href="route('game.index')" :active="route().current('game.index')">
+                                    Games
+                                </JetNavLink>
+                                <JetNavLink :href="route('player.index')" :active="route().current('player.index')">
+                                    Players
+                                </JetNavLink>
+                                <JetNavLink v-if="$page.props.user && $page.props.user.admin >= 1" :href="route('livestream')" :active="route().current('livestream')">
+                                    Livestream
+                                </JetNavLink>
+                                <JetNavLink v-if="$page.props.user && $page.props.user.admin >= 1" :href="route('game.create')" :active="route().current('game.create')">
+                                    Create Game
+                                </JetNavLink>
                             </div>
                         </div>
-
+                        
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <div class="ml-3 relative">
                                 <!-- Teams Dropdown -->
