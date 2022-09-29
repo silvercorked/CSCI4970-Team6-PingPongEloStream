@@ -29,11 +29,11 @@ defineProps({
                             ? ' rounded-b-lg'
                             : ''),
                         'px-6 py-2 border-b border-gray-200 w-full'
-                    ]"
+                    ]" :key="index"
                 >
                     <div class="grid grid-cols-4 gap-4">
                         <span>Team Members</span>
-                        <div v-for="member in team.members">
+                        <div v-for="(member, index) in team.members" :key="index">
                             <span >
                                 {{ member.name }}
                             </span>
