@@ -53,7 +53,7 @@ const logout = () => {
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </JetNavLink>
-                                <JetNavLink :href="route('leaderboards')" :active="route().current('leaderboards')">
+                                <JetNavLink :href="route('leaderboards.singles')" :active="route().current('leaderboards.singles')">
                                     Leaderboards
                                 </JetNavLink>
                                 <JetNavLink :href="route('game.index')" :active="route().current('game.index')">

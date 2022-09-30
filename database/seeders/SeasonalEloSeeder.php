@@ -16,10 +16,12 @@ class SeasonalEloSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        $season = Season::orderBy('id', 'desc')->first();
+        $seasons = Season::orderBy('id', 'desc')->get();
         $teams = Team::all();
-        foreach ($teams as $team) {
-            $team->seasons()->attach($season, ['elo' => mt_rand(1000, 2000)]);
+        foreach ($seasons as $season) {
+            foreach ($teams as $team) {
+                $team->seasons()->attach($season, ['elo' => mt_rand(1000, 2000)]);
+            }
         }
     }
 }

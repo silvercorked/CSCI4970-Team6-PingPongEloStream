@@ -83,7 +83,8 @@ Route::group([], function() {
             'phpVersion' => PHP_VERSION,
         ]);
     });
-    Route::get('/leaderboards', [LeaderboardController::class, 'index'])->name('leaderboards');
+    Route::get('/leaderboards/singles', [LeaderboardController::class, 'singles'])->name('leaderboards.singles');
+    Route::get('/leaderboards/doubles', [LeaderboardController::class, 'doubles'])->name('leaderboards.doubles');
     Route::get('/games', [GameController::class, 'index'])->name('game.index');
     Route::get('/players', [PlayerController::class, 'index'])->name('player.index');
     Route::get('/games/{game_id}', [GameController::class, 'show'])->name('game.show');

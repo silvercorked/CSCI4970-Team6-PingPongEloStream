@@ -20,7 +20,12 @@ class GameSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        $season = Season::current();
+        $this->fillSeason(1);
+        $this->fillSeason(2);
+    }
+
+    private function fillSeason($season_id) {
+        $season = Season::find($season_id);
         $singles = Mode::find(1);
         $doubles = Mode::find(2);
 
