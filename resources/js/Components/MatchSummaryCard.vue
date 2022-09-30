@@ -52,12 +52,16 @@
 	</div>
 </template>
 
-<script>
+<script setup>
 	import { ref } from 'vue';
-	export default {
-		props: {
-			playerOne: Object,
-			playerTwo: Object,
-		},
-	}
+  defineProps({
+    playerOne: Object,
+    playerTwo: Object,
+  });
+	// export default {
+	// 	props: {
+	// 		playerOne: Object,
+	// 		playerTwo: Object,
+	// 	},
+	// }
 </script>
