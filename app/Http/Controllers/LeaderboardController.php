@@ -14,24 +14,6 @@ class LeaderboardController extends Controller {
     public function singles() {
         $season = Season::current();
         $props = self::getDefaultProps();
-        /*$teams = Team::whereIn('teams.id', function ($q) {
-            $q->select(['teams.id'])->from('teams')
-                ->join('members', 'teams.id', '=', 'members.team_id')
-                ->groupBy('members.team_id')
-                ->havingRaw('COUNT(members.user_id) = 1');
-        })->join('seasonal_elos', 'teams.id', '=', 'seasonal_elos.team_id')
-        ->where('seasonal_elos.season_id', '=', $season->id)
-        ->orderBy('seasonal_elos.elo', 'desc')
-        ->with(['members', 'elos' => function ($q) use ($season) {
-            $q->where('season_id', $season->id);
-        }]
-        )->paginate(4)->through(function ($team) {
-            return [
-                'id' => $team->id,
-                'members' => $team->members,
-                'elo' => $team->elos[0]->elo
-            ];
-        });*/
         $teams = Team::select(['teams.*', 'seasonal_elos.elo'])
             ->join('seasonal_elos', 'teams.id', '=', 'seasonal_elos.team_id')
             ->where('seasonal_elos.season_id', $season->id)

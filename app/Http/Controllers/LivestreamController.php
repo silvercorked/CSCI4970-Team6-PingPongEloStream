@@ -14,7 +14,7 @@ class LivestreamController extends Controller {
     public function index() {
         $props = self::getDefaultProps();
         $props->put('season_number', Season::current()->id);
-        $props->put('current_game', Game::where('complete', false)->latest()->first());
+        $props->put('current_game', Game::whereNotNull('completed_at')->latest()->first());
         return Inertia::render('Livestream/Livestream', []);
     }
 }

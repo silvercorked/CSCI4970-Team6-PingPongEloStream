@@ -1,6 +1,10 @@
 # ATTIC Ping Pong Website
 This website is in development and aims to provide an interface for the UNO CMIT ATTIC to log, track, and view ping pong games that happen using it's ping pong table.
 
+## Release Notes
+- Milestone 1, 10/6/2022:
+    - This release contains the routes, database migrations, database seeders, and partially completed controllers which will support many future features. This release also resolves is inline with the Project Plan thus far.
+
 ## To run locally (Windows)
 ### Requirements
 - an ssh key
