@@ -17,6 +17,11 @@ module.exports = {
             },
         },
     },
+    safelist: [
+        {
+            pattern: /.*/
+        }
+    ],
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };
