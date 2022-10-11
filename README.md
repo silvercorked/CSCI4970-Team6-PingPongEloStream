@@ -1,65 +1,66 @@
-# ATTIC Ping Pong Website
-This website is in development and aims to provide an interface for the UNO CMIT ATTIC to log, track, and view ping pong games that happen using it's ping pong table.
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-## Release Notes
-- Milestone 1, 10/6/2022:
-    - This release contains the routes, database migrations, database seeders, and partially completed controllers which will support many future features. This release also resolves is inline with the Project Plan thus far.
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-## To run locally (Windows)
-### Requirements
-- an ssh key
-- composer 2.x
-- php 8.1
-- node/npm
-- virtualbox 6.1.x
-- vagrant
+## About Laravel
 
-### Steps
-- pull down repo
-- `cp .env.example .env` (copies the example .env file into one the project will utilize)
-- `composer install`
-- `vendor\\bin\\homestead make` (if using git bash: `php vendor/bin/homestead make`) (this will generate the Homestead.yaml file)
-- `php artisan key:generate` (sets the APP_KEY property of the .env file)
-- Edit Homestead.yaml file to point to project directory
-- Edit Windows/System32/drivers/etc/hosts to allow connecting to vagrant box locally
-- `vagrant up` (this will boot up the virtual machine. This can take several minutes. `vagrant halt` stops the virtual machine. `vagrant destroy --force` deletes the virtual machine. `vagrant reload --provision` will re-analyze the homestead.yaml file for changes and reload the box) (pay attention to the port forwarding section, you should see 80->8000, 443->44300, 3306->33060, and 22->2222. If you do not see those or one of the numbers is different, the application will likely run into issues. Very commonly, another process is using port 3306, causing this forwarding to use a different number, which will not work. `vagrant port` will show the ports being forwarded)
-- attempt to connect to the local site using the url in the Homestead.yaml file (if this fails, configuration is incorrect) (if you see any indication of your application, even an error page sent by the site, this step was successful)
-- If you get the error `SQLSTATE[HY000] [2002] (trying to connect via (null))`, in `.env` set `DB_HOST` to `localhost` instead of `127.0.0.1`
-- `php artisan migrate` (if this failes, the above 2 steps have likely been done in error) (if this succeedes, then we're almost ready)
-- If you run into errors when running the above migrate command, check your ports with `vagrant port`. You might be missing 3306, which can be fixed by adding the following to Homestead.yaml:
-```
-ports:
-    - send: 33060
-      to: 3306
-```
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- `npm install` (this is also a vue project, so need these dependencies)
-- `npm run build` (builds the vue files. Can use `npm run watch` and `npm run dev` to have this run when files are saved)
-- `php artisan storage:link` This will create a symbolic link between the /public/storage location and /storage/app location. This allows us to save files (profile pictures) to /storage/app and access them in the app by linking to http://{our-website=name}/storage/{image-url}
-- (optional) `php artisan db:seed` (seeds the database according to the seeders)
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-## Workflow for local development
-- automatic page change watching
-    - `vagrant up`
-    - `npm run watch`
-    - while making changes
-        - make change
-        - if change affects migrations/seeders
-            - `php artisan migrate:fresh --seed` (deletes current db, migrates db, seeds db)
-        - view on site
-- manual page change
-    - `vagrant up`
-    - while making changes
-        - make change
-        - `npm run build`
-        - if change affects migrations/seeders
-            - `php artisan migrate:fresh --seed` (deletes current db, migrates db, seeds db)
-        - view on site
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Frameworks
-- Vue 3
-- Boostrap CSS 5
-- Laravel 9
-    - Homestead https://laravel.com/docs/9.x/homestead
-    - Jetstream https://jetstream.laravel.com/2.x/introduction.html
+## Learning Laravel
 
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+## Laravel Sponsors
+
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+
+### Premium Partners
+
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
