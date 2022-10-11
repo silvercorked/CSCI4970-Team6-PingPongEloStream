@@ -12,22 +12,18 @@ use App\Models\Team;
 use App\Models\User;
 
 class GameController extends Controller {
-    
-    public function index(Request $request) {
-        $props = self::getDefaultProps();
+
+    public function all(Request $request) {
         $games = Game::with(['teams', 'teams.members'])->orderBy('updated_at')->get();
-        $props->put('games', $games);
-        return Inertia::render('Games/Index/Index', $props->all());
+        return self::successfulResponse([
+            'games' => $games
+        ]);
     }
-    public function show(Request $request, $game_id) {
-        $props = self::getDefaultProps();
+    public function getOne(Request $request, $game_id) {
         $game = Game::with(['sets', 'sets.points', 'teams', 'teams.members'])->find($game_id);
-        $props->put('game', $game);
-        return Inertia::render('Games/Show/Show', $props->all());
-    }
-    public function create(Request $request) {
-        $props = self::getDefaultProps();
-        return Inertia::render('Games/Create/Create', $props->all());
+        return self::successfulResponse([
+            'game' => $game
+        ]);
     }
     public function store(Request $request) {
         Request::validate($request->all(), [
@@ -56,8 +52,8 @@ class GameController extends Controller {
             'set_score' => 0
         ]);
         $game->save();
-        return redirect('games.show', [
-            'game_id' => $game->id
+        return self::successfulResponse([
+            'game' => $game
         ]);
     }
     public function storeAndPlay(Request $request) {
@@ -87,20 +83,9 @@ class GameController extends Controller {
             'set_score' => 0
         ]);
         $game->save();
-        return redirect('games.start', [
-            'game_id' => $game->id
+        return self::successfulResponse([
+            'game' => $game
         ]);
-    }
-    public function edit(Request $request, $game_id) {
-        $props = self::getDefaultProps();
-        $game = Game::find($game_id);
-        if ($game->started_at || $game->completed_at)
-            return redirect()->back()->withErrors([
-                'edit' => 'Game is uneditable as it has ' . ($game->completed_at
-                    ? 'been completed.'
-                    : 'already started.')
-            ]);
-        return Inertia::render('Games/Edit/Edit', $props->all());
     }
     public function update(Request $request, $game_id) {
         Request::validate($request->all(), [
@@ -129,8 +114,8 @@ class GameController extends Controller {
             'set_score' => 0
         ]);
         $game->save();
-        return redirect('games.show', [
-            'game_id' => $game->id
+        return self::successfulResponse([
+            'game' => $game
         ]);
     }
     public function play(Request $request, $game_id) {
@@ -143,18 +128,8 @@ class GameController extends Controller {
             $game->started_at = Carbon::now();
             $game->save();
         }
-        return redirect('games.playing', [
-            'game_id' => $game_id
-        ]);
-    }
-    public function playing(Request $request, $game_id) {
-        $props = self::getDefaultProps();
-        $game = Game::find($game_id);
-        $props->put('game', $game);
-        if ($game->started_at && !$game->completed_at)
-            return Inertia::render('Games/Playing/Playing', $props);
-        return redirect()->back()->withErrors([
-            'playing' => 'Game is not playable.'
+        return self::successfulResponse([
+            'game' => $game
         ]);
     }
 }

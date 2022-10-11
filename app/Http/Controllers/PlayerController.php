@@ -8,37 +8,29 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 class PlayerController extends Controller {
-    
-    public function index(Request $request) {
-        $props = self::getDefaultProps();
-        return Inertia::render('Player/Index/Index', $props->all());
+
+    public function all(Request $request) {
+        $players = User::all();
+        return self::successfulResponse([
+            'players' => $players
+        ]);
     }
-    public function show(Request $request, $player_id) {
-        $props = self::getDefaultProps();
+    public function getOne(Request $request, $user_id) {
+        $player = User::find($user_id);
+        return self::successfulResponse([
+            'player' => $player
+        ]);
+    }
+    public function getProfileInfo(Request $request, $player_id) {
         $player = User::with(['teams', 'teams.games', 'teams.elos', 'teams.currentElo'])->find($player_id);
         $teams = $player->teams;
-        $props->put('player', $player);
-        $props->put('teams', $teams);
-        return Inertia::render('Player/Show/Show', $props->all());
-    }
-    public function profileShow(Request $request) { // colin
-        $props = self::getDefaultProps();
-        $player = auth()->user()->load(['teams', 'teams.games', 'teams.elos', 'teams.currentElo'])->get();
-        $teams = $player->teams;
-        $props->put('player', $player);
-        $props->put('teams', $teams);
-        $props->put('playerIsUser', true);
-        return Inertia::render('Player/Show/Show', $props->all());
-    }
-    public function editProfile(Request $request) {
-        $props = self::getDefaultProps();
-        $user = auth()->user();
-        $props->put('editable', [
-            'name' => $user->name,
-            'email' => $user->email
+        return self::successfulResponse([
+            'player' => $player,
+            'teams' => $teams,
+            'player_is_user' => $request->user()->id === $player->id
         ]);
     }
     public function updateProfile(Request $request) {
-        
+
     }
 }
