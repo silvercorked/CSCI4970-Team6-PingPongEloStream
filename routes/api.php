@@ -46,6 +46,7 @@ Route::group([], function() {
     Route::get('/games/{game_id}', [GameController::class, 'getOne'])->name('get one game');
     Route::get('/players/{player_id}', [PlayerController::class, 'getOne'])->name('get one player');
     Route::get('/players/{player_id}/teams', [PlayerController::class, 'getProfileInfo'])->name('get profile information for given player');
+    Route::get('/players/{player_id}/stats', [PlayerController::class, 'getPlayerStats'])->name('get stats for given player');
 });
 // auth
 Route::group(['middleware' => ['auth:sanctum']], function() {
