@@ -33,4 +33,20 @@ class PlayerController extends Controller {
     public function updateProfile(Request $request) {
 
     }
+    public function getSinglesTeamAndUser(Request $request, $player_id) {
+        $player = User::with(['teams', 'teams.members'])->find($player_id);
+
+        if (!$player) return self::noResourceResponse();
+
+        $team = $player->teams->filter(function($team) {
+            return count($team->members) == 1;
+        })->first();
+        return self::successfulResponse([
+            'player' => [
+                'id' => $player->id,
+                'name' => $player->name
+            ],
+            'team_id' => $team->id
+        ]);
+    }
 }
