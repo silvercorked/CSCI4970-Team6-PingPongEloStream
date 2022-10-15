@@ -48,7 +48,8 @@ class LeaderboardController extends Controller {
         return self::successfulResponse([
             'team_id' => $team['id'],
             'elo' => $team['elo'],
-            'ranking' => $ranking
+            'ranking' => $ranking + 1
+            // the items proprty of the collections this was extracted from is zero-indexed, so +1
         ]);
     }
     public function getLeaderboardTeams(int $teamSize, Season $season) {
