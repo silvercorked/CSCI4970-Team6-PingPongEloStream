@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('team_id');
             $table->foreign('team_id')->references('id')->on('teams');
             $table->unsignedInteger('set_score');
+            $table->unsignedTinyInteger('team_number');
             $table->timestamps();
         });
     }
