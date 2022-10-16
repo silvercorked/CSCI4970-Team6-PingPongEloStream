@@ -27,6 +27,7 @@ use App\Http\Controllers\UserController;
 
 // auth/login/creds routes
 Route::group([], function() {
+    Route::post('/register', [AuthController::class, 'register']->name('create a new user and return a token'));
     Route::post('/login', [AuthController::class, 'getToken'])->name('get user a token via login');
     Route::group(['middleware' => ['auth:sanctum']], function() {
         Route::post('/sign-out', [AuthController::class, 'destroyCurrentToken'])->name('destroy token being used currently');
