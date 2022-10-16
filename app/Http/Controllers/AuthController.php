@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
-use Illiminate\Validation\Rules\Password;
+use Illuminate\Validation\Rules\Password;
 
 use App\Models\User;
 
@@ -25,7 +25,9 @@ class AuthController extends Controller {
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
-        return self::successfulResponse($user);
+        return self::successfulResponse([
+            'token' => $user->createToken($request->device_name)->plainTextToken
+        ]);
     }
     public function getToken(Request $request) {
         $validator = Validator::make($request->all(), [
