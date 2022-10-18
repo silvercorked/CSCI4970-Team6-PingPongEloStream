@@ -9,7 +9,7 @@ use App\Models\Team;
 
 class TeamController extends Controller {
     public function getTeamGames(Request $request, $team_id, $season_id) {
-        $team = Team::find($team_id);
+        $team = Team::with('members')->find($team_id);
         if (!$team)
             return self::noResourceResponse();
         $games = Game::whereHas('teams', function($q) use ($team) {
@@ -18,6 +18,17 @@ class TeamController extends Controller {
             $q->withPivot(['set_score', 'team_number']);
         }, 'teams.members'])->get();
         return self::successfulResponse([
+            'team' => [
+                'id' => $team->id,
+                'members' => $team->members->map(function ($m) {
+                    return [
+                        'id' => $m->id,
+                        'name' => $m->name,
+                        'email' => $m->email,
+                        'profile_photo_url' => $m->profile_photo_url
+                    ];
+                })
+            ],
             'games' => $games->map(function ($g) use ($team_id) {
                 $team1 = Game::pickTeam1($g->teams);
                 $team2 = Game::pickTeam2($g->teams);
@@ -38,7 +49,6 @@ class TeamController extends Controller {
                     'created_at' => $g->created_at,
                     'updated_at' => $g->updated_at,
                     'given_team' => [
-                        'id' => $given->id,
                         'set_score' => $given->pivot->set_score,
                         'served_first' => $givenServedFirst,
                         'first_server_id' => $givenIsTeam1
@@ -51,7 +61,15 @@ class TeamController extends Controller {
                         'served_first' => !$givenServedFirst,
                         'first_server_id' => $givenIsTeam1
                             ? $g->team2_first_server_id
-                            : $g->team1_first_server_id
+                            : $g->team1_first_server_id,
+                        'members' => $opponent->members->map(function ($m) {
+                            return [
+                                'id' => $m->id,
+                                'name' => $m->name,
+                                'email' => $m->email,
+                                'profile_photo_url' => $m->profile_photo_url
+                            ];
+                        })
                     ]
                 ];
             })

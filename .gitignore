@@ -3,7 +3,9 @@
 /public/hot
 /public/storage
 /storage/*.key
+/storage/clockwork
 /vendor
+/.vagrant
 .env
 .env.backup
 .phpunit.result.cache
