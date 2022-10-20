@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Season;
 use App\Models\Team;
+use App\Models\User;
 
 class LeaderboardController extends Controller {
 
@@ -35,7 +36,23 @@ class LeaderboardController extends Controller {
             'season_number' => $season->id
         ]);
     }
-    private function getLeaderboardTeams(int $teamSize, Season $season) {
+    public function getPlayerSinglesRankingAndElo(Request $request, $player_id, $season_id = null) {
+        $player = User::find($player_id);
+        $season = $season_id ? Season::find($season_id) : Season::current();
+        $teams = $this->getLeaderboardTeams(1, $season)->get();
+        $team = $teams->filter(function ($t) use($player_id) {
+            return $t->members[0]->id == $player_id;
+        })->toArray();
+        $ranking = array_keys($team)[0];
+        $team = $team[$ranking];
+        return self::successfulResponse([
+            'team_id' => $team['id'],
+            'elo' => $team['elo'],
+            'ranking' => $ranking + 1
+            // the items proprty of the collections this was extracted from is zero-indexed, so +1
+        ]);
+    }
+    public function getLeaderboardTeams(int $teamSize, Season $season) {
         return Team::select(['teams.*', 'seasonal_elos.elo'])
             ->join('seasonal_elos', 'teams.id', '=', 'seasonal_elos.team_id')
             ->where('seasonal_elos.season_id', $season->id)

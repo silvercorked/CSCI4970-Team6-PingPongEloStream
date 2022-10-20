@@ -69,10 +69,11 @@ class Game extends Model {
         return self::pickTeam(2, $arr);
     }
     private static function pickTeam(int $which, Collection $arr) {
-        if ($arr->count() != 2) return null;
-        if (Carbon::parse($arr->first()->created_at)->greaterThan(Carbon::parse($arr->last()->created_at))) { // true = 0 before 1
-            return $which == 1 ? $arr->first() : $arr->last();
+        for ($i = 0; $i < $arr->count(); $i++) {
+            $item = $arr->get($i);
+            if ($item->pivot->team_number == $which)
+                return $item;
         }
-        return $which == 1 ? $arr->last() : $arr->first();
+        return null;
     }
 }

@@ -49,10 +49,12 @@ class GameSeeder extends Seeder {
             $team1SetScore = mt_rand(0, 2);
             $team2SetScore = mt_rand(0, $team1SetScore != 2 ? 2 : 1);
             $g->teams()->attach($teams->first(), [
-                'set_score' => $team1SetScore
+                'set_score' => $team1SetScore,
+                'team_number' => 1
             ]);
             $g->teams()->attach($teams->last(), [
-                'set_score' => $team2SetScore
+                'set_score' => $team2SetScore,
+                'team_number' => 2
             ]);
             $team1Wins = $team1SetScore > $team2SetScore;
             while ($team1SetScore + $team2SetScore > 0) {
@@ -99,11 +101,11 @@ class GameSeeder extends Seeder {
                     $point = new Point();
                     if ($set->team1_score > 0) {
                         $set->team1_score--;
-                        $point->team()->associate(Game::pickTeam1($g->teams));
+                        $point->team()->associate($teams->first());
                     }
                     else {
                         $set->team2_score--;
-                        $point->team()->associate(Game::pickTeam2($g->teams));
+                        $point->team()->associate($teams->last());
                     }
                     $point->set()->associate($set);
                     $point->save();

@@ -5,10 +5,11 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
-use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\LivestreamController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\LeaderboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,9 @@ Route::group([], function() {
     Route::get('/games/{game_id}', [GameController::class, 'getOne'])->name('get one game');
     Route::get('/players/{player_id}', [PlayerController::class, 'getOne'])->name('get one player');
     Route::get('/players/{player_id}/teams', [PlayerController::class, 'getProfileInfo'])->name('get profile information for given player');
+    Route::get('/players/{player_id}/teams/singles', [PlayerController::class, 'getSinglesTeamAndUser'])->name('get player and singles team for given player');
+    Route::get('/players/{player_id}/teams/singles/ranking/season/{season_id}', [LeaderboardController::class, 'getPlayerSinglesRankingAndElo'])->name('get player\'s ranking on the leaderboards and elo for given season');
+    Route::get('/teams/{team_id}/games/{season_id}', [TeamController::class, 'getTeamGames'])->name('get games for given team');
 });
 // auth
 Route::group(['middleware' => ['auth:sanctum']], function() {
