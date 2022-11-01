@@ -26,14 +26,16 @@ class GameController extends Controller {
         ]);
     }
     public function store(Request $request) {
-        Request::validate($request->all(), [
-            'mode_id' => 'required|exists:modes,id',
-            'team1_id' => 'required|exists:teams,id',
-            'team2_id' => 'required|exists:teams,id|different:team1_id',
-            'team1_first_server_id' => 'required|exists:users,id',
-            'team2_first_server_id' => 'required|exists:users,id',
-            'first_server' => 'required|regex:/^(team1)|(team2)$/'
+        $validator = Request::validate($request->all(), [
+            'mode_id' => ['required', 'exists:modes,id'],
+            'team1_id' => ['required', 'exists:teams,id'],
+            'team2_id' => ['required', 'exists:teams,id', 'different:team1_id'],
+            'team1_first_server_id' => ['required', 'exists:users,id'],
+            'team2_first_server_id' => ['required', 'exists:users,id'],
+            'first_server' => ['required', 'regex:/^(team1)|(team2)$/']
         ]);
+        if ($validator->fails())
+            return self::unsuccessfulResponse($validator->errors());
         $mode = Mode::find($request->only('mode_id'));
         $teams = Team::findMany($request->only(['team1_id', 'team2_id']));
         $user1 = User::find($request->only(['team1_first_server_id']));
@@ -57,14 +59,16 @@ class GameController extends Controller {
         ]);
     }
     public function storeAndPlay(Request $request) {
-        Request::validate($request->all(), [
-            'mode_id' => 'required|exists:modes,id',
-            'team1_id' => 'required|exists:teams,id',
-            'team2_id' => 'required|exists:teams,id|different:team1_id',
-            'team1_first_server_id' => 'required|exists:users,id',
-            'team2_first_server_id' => 'required|exists:users,id',
-            'first_server' => 'required|regex:/^(team1)|(team2)$/'
+        $validator = Request::validate($request->all(), [
+            'mode_id' => ['required', 'exists:modes,id'],
+            'team1_id' => ['required', 'exists:teams,id'],
+            'team2_id' => ['required', 'exists:teams,id', 'different:team1_id'],
+            'team1_first_server_id' => ['required', 'exists:users,id'],
+            'team2_first_server_id' => ['required', 'exists:users,id'],
+            'first_server' => ['required', 'regex:/^(team1)|(team2)$/']
         ]);
+        if ($validator->fails())
+            return self::unsuccessfulResponse($validator->errors());
         $mode = Mode::find($request->only('mode_id'));
         $teams = Team::findMany($request->only(['team1_id', 'team2_id']));
         $user1 = User::find($request->only(['team1_first_server_id']));
