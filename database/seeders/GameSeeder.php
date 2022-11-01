@@ -47,7 +47,7 @@ class GameSeeder extends Seeder {
             $g->team2FirstServer()->associate($team2FirstServer);
             $g->save();
             $team1SetScore = mt_rand(0, 2);
-            $team2SetScore = mt_rand(0, $team1SetScore != 2 ? 2 : 1);
+            $team2SetScore = $team1SetScore != 2 ? 2 : mt_rand(0, 1);
             $g->teams()->attach($teams->first(), [
                 'set_score' => $team1SetScore,
                 'team_number' => 1
@@ -57,6 +57,10 @@ class GameSeeder extends Seeder {
                 'team_number' => 2
             ]);
             $team1Wins = $team1SetScore > $team2SetScore;
+            $team1EloChange = mt_rand(15, 30);
+            $team2EloChange = mt_rand(15, 30);
+            $g->team1_elo_change = $team1Wins ? $team1EloChange : -$team1EloChange;
+            $g->team2_elo_change = $team1Wins ? -$team2EloChange : $team2EloChange;
             while ($team1SetScore + $team2SetScore > 0) {
                 $set = new Set();
                 $set->game()->associate($g);

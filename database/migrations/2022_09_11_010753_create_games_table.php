@@ -24,6 +24,8 @@ return new class extends Migration
             $table->foreign('mode_id')->references('id')->on('modes');
             $table->unsignedBigInteger('season_id');
             $table->foreign('season_id')->references('id')->on('seasons');
+            $table->mediumInteger('team1_elo_change');
+            $table->mediumInteger('team2_elo_change');
             $table->timestamp('started_at')->nullable();
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
