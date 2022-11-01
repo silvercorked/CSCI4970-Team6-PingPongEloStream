@@ -51,6 +51,12 @@ class TeamController extends Controller {
                     'given_team' => [
                         'set_score' => $given->pivot->set_score,
                         'served_first' => $givenServedFirst,
+                        'elo_after' => $givenIsTeam1
+                            ? $g->team1_elo_then
+                            : $g->team2_elo_then,
+                        'elo_change' => $givenIsTeam1
+                            ? $g->team1_elo_change
+                            : $g->team2_elo_change,
                         'first_server_id' => $givenIsTeam1
                             ? $g->team1_first_server_id
                             : $g->team2_first_server_id
@@ -59,6 +65,12 @@ class TeamController extends Controller {
                         'id' => $opponent->id,
                         'set_score' => $opponent->pivot->set_score,
                         'served_first' => !$givenServedFirst,
+                        'elo_after' => $givenIsTeam1
+                            ? $g->team2_elo_then
+                            : $g->team1_elo_then,
+                        'elo_change' => $givenIsTeam1
+                            ? $g->team2_elo_change
+                            : $g->team1_elo_change,
                         'first_server_id' => $givenIsTeam1
                             ? $g->team2_first_server_id
                             : $g->team1_first_server_id,
