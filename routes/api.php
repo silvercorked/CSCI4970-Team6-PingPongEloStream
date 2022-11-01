@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\ModeController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlayerController;
@@ -43,6 +44,8 @@ Route::group([], function() {
     Route::get('/leaderboards/singles/season/{season_id}', [LeaderboardController::class, 'singles'])->name('grabs all singles teams (ordered by given season elo)');
     Route::get('/leaderboards/doubles', [LeaderboardController::class, 'doubles'])->name('grabs all doubles teams (ordered by current season elo)');
     Route::get('/leaderboards/doubles/season/{season_id}', [LeaderboardController::class, 'doubles'])->name('grabs all doubles teams (ordered by given season elo)');
+    Route::get('/modes', [ModeController::class, 'all'])->name('get all modes');
+    Route::get('/modes/mode_id', [ModeController::class, 'getOne'])->name('get one mode');
     Route::get('/games', [GameController::class, 'all'])->name('get all games (ordered by most recent)');
     Route::get('/players', [PlayerController::class, 'all'])->name('get all players');
     Route::get('/games/{game_id}', [GameController::class, 'getOne'])->name('get one game');

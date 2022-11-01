@@ -22,10 +22,10 @@ class TeamSeeder extends Seeder {
             $team->members()->attach($user);
         }
         $memberGroups = self::getAllTeamCombos($users);
-        foreach ($memberGroups as $group) {
+        for ($i = 0; $i < count($memberGroups); $i += 3) { // skip every few so there arent so many
             $team = new Team();
             $team->save();
-            $team->members()->attach($group);
+            $team->members()->attach($memberGroups[$i]);
         }
     }
     private static function getAllTeamCombos($users) {

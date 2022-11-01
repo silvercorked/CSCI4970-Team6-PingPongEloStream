@@ -24,21 +24,31 @@ class GameSeeder extends Seeder {
         $this->fillSeason(2);
     }
 
+    private function getTeams($teams, $teamCount) {
+        return $teams->random($teamCount);
+    }
+
     private function fillSeason($season_id) {
         $season = Season::find($season_id);
         $singles = Mode::find(1);
         $doubles = Mode::find(2);
+        $teams = Team::all();
+        $singlesTeams = collect();
+        $doublesTeams = collect();
+        for ($i = 0; $i < count($teams); $i++) {
+            $curr = $teams[$i];
+            if (count($curr->members) == 1)
+                $singlesTeams->add($curr);
+            else // member count must be 2
+                $doublesTeams->add($curr);
+        }
 
         for ($i = 0; $i < 150; $i++) {
             $g = new Game();
             $g->started_at = Carbon::now();
-            $teams = Team::with(['members'])->inRandomOrder()->limit(2)->get();
-            $g->mode()->associate($teams->reduce(function ($agg, $t) {
-                $total = count($t->members);
-                if ($agg < $total)
-                    $agg = $total;
-                return $agg;
-            }) >= 2 ? $doubles : $singles);
+            $mode = mt_rand(0, 1) ? $singles : $doubles;
+            $teams = $this->getTeams($mode == $singles ? $singlesTeams : $doublesTeams, $mode->team_count);
+            $g->mode()->associate($mode);
             $g->season()->associate($season);
             $g->first_server = mt_rand(0, 1) == 0; // true = team1. false = team2
             $team1FirstServer = $teams->first()->members[0];
@@ -61,6 +71,8 @@ class GameSeeder extends Seeder {
             $team2EloChange = mt_rand(15, 30);
             $g->team1_elo_change = $team1Wins ? $team1EloChange : -$team1EloChange;
             $g->team2_elo_change = $team1Wins ? -$team2EloChange : $team2EloChange;
+            $g->team1_elo_then = 1500;
+            $g->team2_elo_then = 1500; // placeholder
             while ($team1SetScore + $team2SetScore > 0) {
                 $set = new Set();
                 $set->game()->associate($g);

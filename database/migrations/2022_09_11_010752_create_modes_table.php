@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('modes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedTinyInteger('team_count');
+            $table->unsignedTinyInteger('player_per_team_count');
             $table->unsignedInteger('win_score');
             $table->unsignedInteger('set_count');
             $table->unsignedInteger('serve_switch');

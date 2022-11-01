@@ -20,7 +20,7 @@ class SeasonalEloSeeder extends Seeder {
         $teams = Team::all();
         foreach ($seasons as $season) {
             foreach ($teams as $team) {
-                $team->seasons()->attach($season, ['elo' => mt_rand(1000, 2000)]);
+                $team->seasons()->attach($season, ['elo' => 1500]);
             }
         }
     }
