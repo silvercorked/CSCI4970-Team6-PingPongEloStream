@@ -72,23 +72,26 @@ class GameController extends Controller {
         ]);
         if ($validator->fails())
             return self::unsuccessfulResponse($validator->errors());
-        $mode = Mode::find($request->only('mode_id'));
+        $mode = Mode::find($request->only('mode_id')['mode_id']);
         $teams = Team::findMany($request->only(['team1_id', 'team2_id']));
-        $user1 = User::find($request->only(['team1_first_server_id']));
-        $user2 = User::find($request->only(['team2_first_server_id']));
+        $user1 = User::find($request->only(['team1_first_server_id'])['team1_first_server_id']);
+        $user2 = User::find($request->only(['team2_first_server_id'])['team2_first_server_id']);
         $game = new Game();
         $game->first_server = $request->only(['first_server']) == 'team1';
-        $game->mode()->associate($mode);
-        $game->season()->associate(Season::current());
-        $game->team1FirstServer()->associate($user1);
-        $game->team2FirstServer()->associate($user2);
+        $game->mode()->associate($mode->id);
+        $game->season()->associate(Season::current()->id);
+        $game->team1FirstServer()->associate($user1->id);
+        $game->team2FirstServer()->associate($user2->id);
         $game->save();
-        $game->teams()->attach($teams->first(), [
-            'set_score' => 0
+        $game->teams()->attach($teams->first()->id, [
+            'set_score' => 0,
+            'team_number' => 1
         ]);
-        $game->teams()->attach($teams->last(), [
-            'set_score' => 0
+        $game->teams()->attach($teams->last()->id, [
+            'set_score' => 0,
+            'team_number' => 2
         ]);
+        $game->started_at = now();
         $game->save();
         return self::successfulResponse([
             'game' => $game
