@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Validator;
 
 use App\Models\Game;
 use App\Models\Mode;
@@ -26,7 +27,7 @@ class GameController extends Controller {
         ]);
     }
     public function store(Request $request) {
-        $validator = Request::validate($request->all(), [
+        $validator = Validator::make($request->all(), [
             'mode_id' => ['required', 'exists:modes,id'],
             'team1_id' => ['required', 'exists:teams,id'],
             'team2_id' => ['required', 'exists:teams,id', 'different:team1_id'],
@@ -59,7 +60,7 @@ class GameController extends Controller {
         ]);
     }
     public function storeAndPlay(Request $request) {
-        $validator = Request::validate($request->all(), [
+        $validator = Validator::make($request->all(), [
             'mode_id' => ['required', 'exists:modes,id'],
             'team1_id' => ['required', 'exists:teams,id'],
             'team2_id' => ['required', 'exists:teams,id', 'different:team1_id'],
@@ -92,7 +93,7 @@ class GameController extends Controller {
         ]);
     }
     public function update(Request $request, $game_id) {
-        Request::validate($request->all(), [
+        Validator::make($request->all(), [
             'mode_id' => 'required|exists:modes,id',
             'team1_id' => 'required|exists:teams,id',
             'team2_id' => 'required|exists:teams,id|different:team1_id',
