@@ -53,12 +53,16 @@ Route::group([], function() {
     Route::get('/players/{player_id}/teams', [PlayerController::class, 'getProfileInfo'])->name('get profile information for given player');
     Route::get('/players/{player_id}/teams/singles', [PlayerController::class, 'getSinglesTeamAndUser'])->name('get player and singles team for given player');
     Route::get('/players/{player_id}/teams/singles/ranking/season/{season_id}', [LeaderboardController::class, 'getPlayerSinglesRankingAndElo'])->name('get player\'s ranking on the leaderboards and elo for given season');
+    Route::get('/teams', [TeamController::class, 'all'])->name('get all teams');
+    Route::get('/teams/{team_id}', [TeamController::class, 'getOne'])->name('get a team');
+    Route::post('/players/teams', [TeamController::class, 'getTeamFromPlayers'])->name('get teams that each have members containing all given players');
     Route::get('/teams/{team_id}/games/{season_id}', [TeamController::class, 'getTeamGames'])->name('get games for given team');
 });
 // auth
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/self', [UserController::class, 'getSelf'])->name('get the user\'s user info');
     Route::put('/profile', [PlayerController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/teams', [TeamController::class, 'store'])->name('create a team');
 });
 // admin
 Route::group(['middleware' => ['auth:sanctum', 'isAdmin']], function() {

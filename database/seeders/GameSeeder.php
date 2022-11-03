@@ -25,22 +25,23 @@ class GameSeeder extends Seeder {
     }
 
     private function getTeams($teams, $teamCount) {
-        return $teams->random($teamCount);
+        $picked = $teams->random($teamCount);
+        return Team::with('members', 'elos')->findMany($picked);
     }
 
     private function fillSeason($season_id) {
         $season = Season::find($season_id);
         $singles = Mode::find(1);
         $doubles = Mode::find(2);
-        $teams = Team::all();
+        $teams = Team::with('members')->get();
         $singlesTeams = collect();
         $doublesTeams = collect();
         for ($i = 0; $i < count($teams); $i++) {
             $curr = $teams[$i];
             if (count($curr->members) == 1)
-                $singlesTeams->add($curr);
+                $singlesTeams->add($curr->id);
             else // member count must be 2
-                $doublesTeams->add($curr);
+                $doublesTeams->add($curr->id);
         }
 
         for ($i = 0; $i < 150; $i++) {
@@ -56,7 +57,7 @@ class GameSeeder extends Seeder {
             $g->team1FirstServer()->associate($team1FirstServer);
             $g->team2FirstServer()->associate($team2FirstServer);
             $g->save();
-            $team1SetScore = mt_rand(0, 2);
+            $team1SetScore = mt_rand(0, 2); // both game most are bo3
             $team2SetScore = $team1SetScore != 2 ? 2 : mt_rand(0, 1);
             $g->teams()->attach($teams->first(), [
                 'set_score' => $team1SetScore,
@@ -67,12 +68,26 @@ class GameSeeder extends Seeder {
                 'team_number' => 2
             ]);
             $team1Wins = $team1SetScore > $team2SetScore;
-            $team1EloChange = mt_rand(15, 30);
-            $team2EloChange = mt_rand(15, 30);
-            $g->team1_elo_change = $team1Wins ? $team1EloChange : -$team1EloChange;
-            $g->team2_elo_change = $team1Wins ? -$team2EloChange : $team2EloChange;
-            $g->team1_elo_then = 1500;
-            $g->team2_elo_then = 1500; // placeholder
+            $team1Elo = $teams->first()->elos->filter(
+                function ($e) use ($season_id) {
+                    return $e->season_id == $season_id;
+                }
+            )->first();
+            $team2Elo = $teams->last()->elos->filter(
+                function ($e) use ($season_id) {
+                    return $e->season_id == $season_id;
+                }
+            )->first();
+            $newElos = elo_rating_update($team1Elo->elo, $team2Elo->elo, $team1Wins);
+            //dd($newElos, $team1Elo, $team2Elo, $team1Wins);
+            $g->team1_elo_change = $team1Elo->elo - $newElos[0];
+            $g->team2_elo_change = $team2Elo->elo - $newElos[1];
+            $g->team1_elo_then = $newElos[0];
+            $g->team2_elo_then = $newElos[1];
+            $team1Elo->elo = $newElos[0];
+            $team2Elo->elo = $newElos[1];
+            $team1Elo->save();
+            $team2Elo->save();
             while ($team1SetScore + $team2SetScore > 0) {
                 $set = new Set();
                 $set->game()->associate($g);
