@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\ModeController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlayerController;
@@ -43,6 +44,8 @@ Route::group([], function() {
     Route::get('/leaderboards/singles/season/{season_id}', [LeaderboardController::class, 'singles'])->name('grabs all singles teams (ordered by given season elo)');
     Route::get('/leaderboards/doubles', [LeaderboardController::class, 'doubles'])->name('grabs all doubles teams (ordered by current season elo)');
     Route::get('/leaderboards/doubles/season/{season_id}', [LeaderboardController::class, 'doubles'])->name('grabs all doubles teams (ordered by given season elo)');
+    Route::get('/modes', [ModeController::class, 'all'])->name('get all modes');
+    Route::get('/modes/mode_id', [ModeController::class, 'getOne'])->name('get one mode');
     Route::get('/games', [GameController::class, 'all'])->name('get all games (ordered by most recent)');
     Route::get('/players', [PlayerController::class, 'all'])->name('get all players');
     Route::get('/games/{game_id}', [GameController::class, 'getOne'])->name('get one game');
@@ -50,12 +53,16 @@ Route::group([], function() {
     Route::get('/players/{player_id}/teams', [PlayerController::class, 'getProfileInfo'])->name('get profile information for given player');
     Route::get('/players/{player_id}/teams/singles', [PlayerController::class, 'getSinglesTeamAndUser'])->name('get player and singles team for given player');
     Route::get('/players/{player_id}/teams/singles/ranking/season/{season_id}', [LeaderboardController::class, 'getPlayerSinglesRankingAndElo'])->name('get player\'s ranking on the leaderboards and elo for given season');
+    Route::get('/teams', [TeamController::class, 'all'])->name('get all teams');
+    Route::get('/teams/{team_id}', [TeamController::class, 'getOne'])->name('get a team');
+    Route::post('/players/teams', [TeamController::class, 'getTeamFromPlayers'])->name('get teams that each have members containing all given players');
     Route::get('/teams/{team_id}/games/{season_id}', [TeamController::class, 'getTeamGames'])->name('get games for given team');
 });
 // auth
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/self', [UserController::class, 'getSelf'])->name('get the user\'s user info');
     Route::put('/profile', [PlayerController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/teams', [TeamController::class, 'store'])->name('create a team');
 });
 // admin
 Route::group(['middleware' => ['auth:sanctum', 'isAdmin']], function() {

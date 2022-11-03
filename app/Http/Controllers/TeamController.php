@@ -3,11 +3,64 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 
 use App\Models\Game;
 use App\Models\Team;
+use App\Models\User;
 
 class TeamController extends Controller {
+    public function all() {
+        return self::successfulResponse(Team::with('members')->all());
+    }
+    public function getOne(Request $request, $team_id) {
+        $team = Team::with('members')->find($team_id);
+        if (!$team)
+            return self::noResourceResponse();
+        return self::successfulRsponse($team);
+    }
+    public function getTeamFromPlayers(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'player_ids' => ['required', 'array'],
+            'player_ids.*' => ['required', 'exists:users,id']
+        ]);
+        if ($validator->fails())
+            return self::unsuccessfulResponse($validator->errors());
+        $ids = $request->player_ids;
+        $sizeIds = count($ids);
+        return self::successfulResponse(
+            Team::with('members')->whereHas('members',
+                function ($q) use ($ids) {
+                    $q->whereIn('user_id', $ids);
+                },
+                '>=', $sizeIds
+            )->get()
+        );
+    }
+    public function store(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'player_ids' => ['required', 'array'],
+            'player_ids.*' => ['required', 'exists:users,id', 'distinct']
+        ]);
+        if ($validator->fails())
+            return self::unsuccessfulResponse($validator->errors());
+        $ids = $request->player_ids;
+        $sizeIds = count($ids);
+        $teamDoesntExist = Team::with('members')->whereHas(
+            'members',
+            function ($q) use ($ids) {
+                $q->whereIn('user_id', $ids);
+            },
+            '=',
+            $sizeIds
+        )->count() == 0;
+        if (!$teamDoesntExist)
+            return self::unsuccessfulResponse('Team already exists.');
+        $team = new Team();
+        $team->save();
+        $team->members()->attach($ids);
+        return self::successfulResponse($team);
+    }
     public function getTeamGames(Request $request, $team_id, $season_id) {
         $team = Team::with('members')->find($team_id);
         if (!$team)
@@ -51,6 +104,12 @@ class TeamController extends Controller {
                     'given_team' => [
                         'set_score' => $given->pivot->set_score,
                         'served_first' => $givenServedFirst,
+                        'elo_after' => $givenIsTeam1
+                            ? $g->team1_elo_then
+                            : $g->team2_elo_then,
+                        'elo_change' => $givenIsTeam1
+                            ? $g->team1_elo_change
+                            : $g->team2_elo_change,
                         'first_server_id' => $givenIsTeam1
                             ? $g->team1_first_server_id
                             : $g->team2_first_server_id
@@ -59,6 +118,12 @@ class TeamController extends Controller {
                         'id' => $opponent->id,
                         'set_score' => $opponent->pivot->set_score,
                         'served_first' => !$givenServedFirst,
+                        'elo_after' => $givenIsTeam1
+                            ? $g->team2_elo_then
+                            : $g->team1_elo_then,
+                        'elo_change' => $givenIsTeam1
+                            ? $g->team2_elo_change
+                            : $g->team1_elo_change,
                         'first_server_id' => $givenIsTeam1
                             ? $g->team2_first_server_id
                             : $g->team1_first_server_id,
