@@ -11,10 +11,10 @@ use App\Models\User;
 
 class TeamController extends Controller {
     public function all() {
-        return self::successfulResponse(Team::all());
+        return self::successfulResponse(Team::with('members')->all());
     }
     public function getOne(Request $request, $team_id) {
-        $team = Team::find($team_id);
+        $team = Team::with('members')->find($team_id);
         if (!$team)
             return self::noResourceResponse();
         return self::successfulRsponse($team);
