@@ -4,6 +4,16 @@ This website is in development and aims to provide an interface for the UNO CMIT
 ## Release Notes
 - Milestone 1, 10/6/2022:
     - This release contains the routes, database migrations, database seeders, and partially completed controllers which will support many future features. This release also resolves is inline with the Project Plan thus far.
+- Milestone 2, 10/20/2022:
+    - This release contains a redesigned login and register page,
+    a home page, as well as the basics for authentication on the,
+    frontend.
+- Milestone 3, 11/3/2022:
+    - This release contains a completed profile page, updated
+    submission routes, and more ways to gather statistics to
+    support pages. It also contains the partially complete
+    implementation of the core page, the game-play page, where
+    users will interact with our system to play a game a ping pong.
 
 ## To run locally (Windows)
 ### Requirements
