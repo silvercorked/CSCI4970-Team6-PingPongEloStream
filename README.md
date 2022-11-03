@@ -27,10 +27,10 @@ This website is in development and aims to provide an interface for the UNO CMIT
 ### Steps
 - pull down repo
 - `cp .env.example .env` (copies the example .env file into one the project will utilize)
-- `composer install`
+- `composer install` (May need to uncomment line extension=fileinfo and extension=pdo_mysql in php.ini file) 
 - `vendor\\bin\\homestead make` (if using git bash: `php vendor/bin/homestead make`) (this will generate the Homestead.yaml file)
 - `php artisan key:generate` (sets the APP_KEY property of the .env file)
-- Edit Homestead.yaml file to point to project directory
+- Edit Homestead.yaml file to point to project directory & add ssh authorize and keys
 - Edit Windows/System32/drivers/etc/hosts to allow connecting to vagrant box locally
 - `vagrant up` (this will boot up the virtual machine. This can take several minutes. `vagrant halt` stops the virtual machine. `vagrant destroy --force` deletes the virtual machine. `vagrant reload --provision` will re-analyze the homestead.yaml file for changes and reload the box) (pay attention to the port forwarding section, you should see 80->8000, 443->44300, 3306->33060, and 22->2222. If you do not see those or one of the numbers is different, the application will likely run into issues. Very commonly, another process is using port 3306, causing this forwarding to use a different number, which will not work. `vagrant port` will show the ports being forwarded)
 - attempt to connect to the local site using the url in the Homestead.yaml file (if this fails, configuration is incorrect) (if you see any indication of your application, even an error page sent by the site, this step was successful)
@@ -42,7 +42,6 @@ ports:
     - send: 33060
       to: 3306
 ```
-
 - `npm install` (this is also a vue project, so need these dependencies)
 - `npm run build` (builds the vue files. Can use `npm run watch` and `npm run dev` to have this run when files are saved)
 - `php artisan storage:link` This will create a symbolic link between the /public/storage location and /storage/app location. This allows us to save files (profile pictures) to /storage/app and access them in the app by linking to http://{our-website=name}/storage/{image-url}
