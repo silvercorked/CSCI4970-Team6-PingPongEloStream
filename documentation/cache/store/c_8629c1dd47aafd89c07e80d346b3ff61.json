@@ -1,0 +1,50 @@
+{
+    "name": "Database\\Seeders\\SeasonSeeder",
+    "line": 11,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Database\\Seeders",
+    "file": "..\\database\\seeders\\SeasonSeeder.php",
+    "relative_file": null,
+    "hash": "ac9be545a5283e6da0afb75d88ac6ab4a5239341",
+    "parent": "Illuminate\\Database\\Seeder",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Carbon": "Carbon\\Carbon",
+        "WithoutModelEvents": "Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents",
+        "Seeder": "Illuminate\\Database\\Seeder",
+        "Season": "App\\Models\\Season"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "run": {
+            "name": "run",
+            "line": 17,
+            "short_desc": "Run the database seeds.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

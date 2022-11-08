@@ -1,0 +1,112 @@
+{
+    "name": "App\\Http\\Middleware\\TrimStrings",
+    "line": 7,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Middleware",
+    "file": "..\\app\\Http\\Middleware\\TrimStrings.php",
+    "relative_file": null,
+    "hash": "fdae9e792d68b2827446435ff17d6848726a1e81",
+    "parent": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Middleware": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "except": {
+            "name": "except",
+            "line": 14,
+            "short_desc": "The names of the attributes that should not be trimmed.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "App\\Http\\Middleware\\array<int,string>",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 14,
+                    "endLine": 18,
+                    "kind": 2
+                },
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "attributes": {
+                            "startLine": 15,
+                            "endLine": 15
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 15,
+                                "endLine": 15,
+                                "kind": 1
+                            },
+                            "value": "current_password"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "attributes": {
+                            "startLine": 16,
+                            "endLine": 16
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 16,
+                                "endLine": 16,
+                                "kind": 1
+                            },
+                            "value": "password"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "attributes": {
+                            "startLine": 17,
+                            "endLine": 17
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "attributes": {
+                                "startLine": 17,
+                                "endLine": 17,
+                                "kind": 1
+                            },
+                            "value": "password_confirmation"
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    }
+                ]
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": [],
+    "constants": []
+}
