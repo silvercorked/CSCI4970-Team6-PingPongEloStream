@@ -1,0 +1,80 @@
+{
+    "name": "App\\Providers\\RouteServiceProvider",
+    "line": 11,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Providers",
+    "file": "..\\app\\Providers\\RouteServiceProvider.php",
+    "relative_file": null,
+    "hash": "f64c1ae70ed15aa99327ef6c83d690f6e07f9b37",
+    "parent": "Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Limit": "Illuminate\\Cache\\RateLimiting\\Limit",
+        "ServiceProvider": "Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
+        "Request": "Illuminate\\Http\\Request",
+        "RateLimiter": "Illuminate\\Support\\Facades\\RateLimiter",
+        "Route": "Illuminate\\Support\\Facades\\Route"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "boot": {
+            "name": "boot",
+            "line": 27,
+            "short_desc": "Define your route model bindings, pattern filters, and other route configuration.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "configureRateLimiting": {
+            "name": "configureRateLimiting",
+            "line": 46,
+            "short_desc": "Configure the rate limiters for the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": {
+        "HOME": {
+            "name": "HOME",
+            "line": 20,
+            "short_desc": "The path to the \"home\" route for your application.",
+            "long_desc": "Typically, users are redirected here after authentication.",
+            "modifiers": 1,
+            "tags": []
+        }
+    }
+}

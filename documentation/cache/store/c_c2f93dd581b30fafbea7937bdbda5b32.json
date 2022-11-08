@@ -1,0 +1,54 @@
+{
+    "name": "App\\Http\\Middleware\\ValidateSignature",
+    "line": 7,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Middleware",
+    "file": "..\\app\\Http\\Middleware\\ValidateSignature.php",
+    "relative_file": null,
+    "hash": "ef66937ccd20e6a189479dcc98e564cc72d4c92c",
+    "parent": "Illuminate\\Routing\\Middleware\\ValidateSignature",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Middleware": "Illuminate\\Routing\\Middleware\\ValidateSignature"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "except": {
+            "name": "except",
+            "line": 14,
+            "short_desc": "The names of the query string parameters that should be ignored.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "App\\Http\\Middleware\\array<int,string>",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 14,
+                    "endLine": 21,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": [],
+    "constants": []
+}
