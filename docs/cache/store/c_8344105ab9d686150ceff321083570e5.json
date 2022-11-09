@@ -1,0 +1,137 @@
+{
+    "name": "App\\Models\\SeasonalElo",
+    "line": 11,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Models",
+    "file": "..\\app\\Models\\SeasonalElo.php",
+    "relative_file": null,
+    "hash": "89746aed2ab64ae449902e7dfc65a4c1fe01eeab",
+    "parent": "Illuminate\\Database\\Eloquent\\Relations\\Pivot",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "HasFactory": "Illuminate\\Database\\Eloquent\\Factories\\HasFactory",
+        "Pivot": "Illuminate\\Database\\Eloquent\\Relations\\Pivot",
+        "Season": "App\\Models\\Season",
+        "Team": "App\\Models\\Team"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Database\\Eloquent\\Factories\\HasFactory": "Illuminate\\Database\\Eloquent\\Factories\\HasFactory"
+    },
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 19,
+            "short_desc": "Specifies the table to use for this model.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 19,
+                    "endLine": 19,
+                    "kind": 1
+                },
+                "value": "seasonal_elos"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "incrementing": {
+            "name": "incrementing",
+            "line": 26,
+            "short_desc": "Indicates if the IDs are auto-incrementing.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "bool",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 26,
+                    "endLine": 26
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 26,
+                        "endLine": 26,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 26,
+                                "endLine": 26
+                            },
+                            "parts": [
+                                "App",
+                                "Models",
+                                "true"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "true"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": {
+        "team": {
+            "name": "team",
+            "line": 28,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "season": {
+            "name": "season",
+            "line": 33,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

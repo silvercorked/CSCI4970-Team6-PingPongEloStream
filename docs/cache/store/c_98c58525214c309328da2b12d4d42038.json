@@ -1,0 +1,75 @@
+{
+    "name": "App\\Providers\\AuthServiceProvider",
+    "line": 8,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Providers",
+    "file": "..\\app\\Providers\\AuthServiceProvider.php",
+    "relative_file": null,
+    "hash": "846578501ba6a808627be70848cbeafaa492c681",
+    "parent": "Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "ServiceProvider": "Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "policies": {
+            "name": "policies",
+            "line": 15,
+            "short_desc": "The model to policy mappings for the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "App\\Providers\\array<class-string,class-string>",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 15,
+                    "endLine": 17,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": {
+        "boot": {
+            "name": "boot",
+            "line": 24,
+            "short_desc": "Register any authentication \/ authorization services.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}
