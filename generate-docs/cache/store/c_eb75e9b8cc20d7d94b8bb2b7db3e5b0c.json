@@ -1,0 +1,346 @@
+{
+    "name": "App\\Models\\Game",
+    "line": 15,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Models",
+    "file": "..\\app\\Models\\Game.php",
+    "relative_file": null,
+    "hash": "6d59a7b6888e5c11dd8049aac46b1678b6839274",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Carbon": "Carbon\\Carbon",
+        "Collection": "Illuminate\\Database\\Eloquent\\Collection",
+        "HasFactory": "Illuminate\\Database\\Eloquent\\Factories\\HasFactory",
+        "Model": "Illuminate\\Database\\Eloquent\\Model",
+        "Mode": "App\\Models\\Mode",
+        "Season": "App\\Models\\Season",
+        "Set": "App\\Models\\Set",
+        "Team": "App\\Models\\Team"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Database\\Eloquent\\Factories\\HasFactory": "Illuminate\\Database\\Eloquent\\Factories\\HasFactory"
+    },
+    "properties": [],
+    "methods": {
+        "mode": {
+            "name": "mode",
+            "line": 23,
+            "short_desc": "Relationship function to gather the mode related to this game.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Relations\\Relation",
+                    false
+                ]
+            ],
+            "hint_desc": "- belongs to (many-1) relationship",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "season": {
+            "name": "season",
+            "line": 33,
+            "short_desc": "Relationship function to gather the season related to this game.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Relations\\Relation",
+                    false
+                ]
+            ],
+            "hint_desc": "- belongs to (many-1) relationship",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "sets": {
+            "name": "sets",
+            "line": 43,
+            "short_desc": "Relationship function to gather the sets related to this game.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Relations\\Relation",
+                    false
+                ]
+            ],
+            "hint_desc": "- has many (1-many) relationship",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "teams": {
+            "name": "teams",
+            "line": 53,
+            "short_desc": "Relationship function to gather the teams related to this game.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Relations\\Relation",
+                    false
+                ]
+            ],
+            "hint_desc": "- belongs to many (many-many) relationship",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "team1FirstServer": {
+            "name": "team1FirstServer",
+            "line": 63,
+            "short_desc": "Relationship function to gather the user who should\/is\/did serve first on team 1 related to this game.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Relations\\Relation",
+                    false
+                ]
+            ],
+            "hint_desc": "- belongs to (many-1) relationship",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "team2FirstServer": {
+            "name": "team2FirstServer",
+            "line": 73,
+            "short_desc": "Relationship function to gather the user who should\/is\/did serve first on team 2 related to this game.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Relations\\Relation",
+                    false
+                ]
+            ],
+            "hint_desc": "- belongs to (many-1) relationship",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "team1ServesFirst": {
+            "name": "team1ServesFirst",
+            "line": 83,
+            "short_desc": "Helper function to determine if team 1 serves first.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "bool",
+                    false
+                ]
+            ],
+            "hint_desc": "- true if team 1 serves first; false otherwise",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "team2ServesFirst": {
+            "name": "team2ServesFirst",
+            "line": 91,
+            "short_desc": "Helper function to determine if team 2 serves first.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "bool",
+                    false
+                ]
+            ],
+            "hint_desc": "- true if team 2 serves first; false otherwise",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "team1": {
+            "name": "team1",
+            "line": 99,
+            "short_desc": "Relationship function to gather the team which is team 1 related to this game.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Model",
+                    false
+                ],
+                [
+                    "object",
+                    false
+                ],
+                [
+                    "App\\Models\\Game",
+                    false
+                ],
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "team2": {
+            "name": "team2",
+            "line": 109,
+            "short_desc": "Relationship function to gather the team which is team 2 related to this game.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Model",
+                    false
+                ],
+                [
+                    "object",
+                    false
+                ],
+                [
+                    "App\\Models\\Game",
+                    false
+                ],
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "pickTeam1": {
+            "name": "pickTeam1",
+            "line": 120,
+            "short_desc": "Helper function to grab team 1 out of a collection.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Model",
+                    false
+                ],
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "arr": {
+                    "name": "arr",
+                    "line": 120,
+                    "short_desc": "- array of teams.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Database\\Eloquent\\Collection",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "pickTeam2": {
+            "name": "pickTeam2",
+            "line": 129,
+            "short_desc": "Helper function to grab team 2 out of a collection.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Model",
+                    false
+                ],
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "arr": {
+                    "name": "arr",
+                    "line": 129,
+                    "short_desc": "- array of teams.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Database\\Eloquent\\Collection",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        }
+    },
+    "constants": []
+}
