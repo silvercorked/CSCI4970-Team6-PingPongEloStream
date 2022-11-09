@@ -1,0 +1,87 @@
+{
+    "name": "App\\Console\\Kernel",
+    "line": 8,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Console",
+    "file": "..\\app\\Console\\Kernel.php",
+    "relative_file": null,
+    "hash": "6c9091d1186b459f5cbf8df9ce929b9c014c1c31",
+    "parent": "Illuminate\\Foundation\\Console\\Kernel",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Schedule": "Illuminate\\Console\\Scheduling\\Schedule",
+        "ConsoleKernel": "Illuminate\\Foundation\\Console\\Kernel"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "schedule": {
+            "name": "schedule",
+            "line": 16,
+            "short_desc": "Define the application's command schedule.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "schedule": {
+                    "name": "schedule",
+                    "line": 16,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Console\\Scheduling\\Schedule",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "commands": {
+            "name": "commands",
+            "line": 26,
+            "short_desc": "Register the commands for the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

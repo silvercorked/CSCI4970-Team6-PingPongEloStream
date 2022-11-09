@@ -1,0 +1,192 @@
+{
+    "name": "__TwigTemplate_64ce9da4d00002d0bbb2a5ec354c454f",
+    "line": 16,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "",
+    "file": "..\\docs\\cache\\twig\\84\\84b5076d0b8c698dd4ce35b2dec7976b.php",
+    "relative_file": null,
+    "hash": "89e57ebd92b6dbf69bafb254747acaa564bf1536",
+    "parent": "Twig\\Template",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Facade": "Illuminate\\Support\\Facades\\Facade",
+        "Str": "Illuminate\\Support\\Str",
+        "NullHandler": "Monolog\\Handler\\NullHandler",
+        "StreamHandler": "Monolog\\Handler\\StreamHandler",
+        "SyslogUdpHandler": "Monolog\\Handler\\SyslogUdpHandler",
+        "Sanctum": "Laravel\\Sanctum\\Sanctum",
+        "Migration": "Illuminate\\Database\\Migrations\\Migration",
+        "Blueprint": "Illuminate\\Database\\Schema\\Blueprint",
+        "Schema": "Illuminate\\Support\\Facades\\Schema",
+        "Environment": "Twig\\Environment",
+        "LoaderError": "Twig\\Error\\LoaderError",
+        "RuntimeError": "Twig\\Error\\RuntimeError",
+        "SandboxExtension": "Twig\\Extension\\SandboxExtension",
+        "Markup": "Twig\\Markup",
+        "SecurityError": "Twig\\Sandbox\\SecurityError",
+        "SecurityNotAllowedTagError": "Twig\\Sandbox\\SecurityNotAllowedTagError",
+        "SecurityNotAllowedFilterError": "Twig\\Sandbox\\SecurityNotAllowedFilterError",
+        "SecurityNotAllowedFunctionError": "Twig\\Sandbox\\SecurityNotAllowedFunctionError",
+        "Source": "Twig\\Source",
+        "Template": "Twig\\Template"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 21,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "env": {
+                    "name": "env",
+                    "line": 21,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Twig\\Environment",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "doDisplay": {
+            "name": "doDisplay",
+            "line": 33,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "context": {
+                    "name": "context",
+                    "line": 33,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "blocks": {
+                    "name": "blocks",
+                    "line": 33,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "getTemplateName": {
+            "name": "getTemplateName",
+            "line": 42,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "isTraitable": {
+            "name": "isTraitable",
+            "line": 47,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getDebugInfo": {
+            "name": "getDebugInfo",
+            "line": 52,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getSourceContext": {
+            "name": "getSourceContext",
+            "line": 57,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

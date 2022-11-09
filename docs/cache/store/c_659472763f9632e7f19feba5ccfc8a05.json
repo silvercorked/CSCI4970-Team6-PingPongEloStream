@@ -1,0 +1,47 @@
+{
+    "name": "Tests\\Feature\\ExampleTest",
+    "line": 8,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Tests\\Feature",
+    "file": "..\\tests\\Feature\\ExampleTest.php",
+    "relative_file": null,
+    "hash": "7ebd06e3e90ecde5a7712c46e081b62f8817953e",
+    "parent": "Tests\\TestCase",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "TestCase": "Tests\\TestCase"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "test_the_application_returns_a_successful_response": {
+            "name": "test_the_application_returns_a_successful_response",
+            "line": 15,
+            "short_desc": "A basic test example.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

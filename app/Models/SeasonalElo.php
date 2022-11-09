@@ -11,6 +11,11 @@ use App\Models\Team;
 class SeasonalElo extends Pivot {
     use HasFactory;
 
+    /**
+     * Specifies the table to use for this model.
+     *
+     * @var string
+     */
     public $table = 'seasonal_elos';
 
     /**

@@ -19,6 +19,15 @@ class Controller extends BaseController {
     public static function unsuccessfulResponse($message, $statusCode = 400) {
         return self::createResponse($message, false, $statusCode);
     }
+
+    /**
+     * Formulates information from the API into a consistently shaped response.
+     *
+     * @param mixed     $message
+     * @param bool      $success
+     * @param int       $statusCode
+     * @return \Illuminate\Support\Facades\Response
+     */
     public static function createResponse($message, $success, $statusCode) {
         return response()->json([
             'response' => $message,
