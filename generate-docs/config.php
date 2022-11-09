@@ -21,7 +21,7 @@ return new Doctum($iterator, [
 	'title'			=> 'CSCI 4970 Ping Pong Elo Stream API',
 	'language'		=> 'en',
 	'build_dir'		=> __DIR__ . '/../docs',
-	'cache_dir'		=> __DIR__ . '/../docs/cache',
+	'cache_dir'		=> __DIR__ . '/cache',
 	'source_dir'		=> dirname($dir),
 	'remote_repository'	=> new GitHubRemoteRepository(
 		'silvercorked/CSCI4970-Team6-PingPongEloStream',

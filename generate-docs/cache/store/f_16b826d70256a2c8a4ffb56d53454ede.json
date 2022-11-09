@@ -1,18 +1,18 @@
 {
-    "namespace": "",
+    "namespace": "App",
     "name": "elo_probability",
-    "line": 5,
+    "line": 16,
     "file": "..\\app\\helpers.php",
     "relative_file": "",
-    "short_desc": null,
-    "long_desc": null,
+    "short_desc": "Computes the probability that the team ranked with elo2 beats the team ranked with elo1.",
+    "long_desc": "Eb - probability of team b winning\nEb = 1 \/ (1 + 10 ^ ((Rb - Ra) \/ 400)), where Ra = elo1 and Rb = elo2\nThe 400 const is just a scale factor. It implies that 2 teams with an\nelo difference of 400 would be different by a factor of 10 in \"skill\".",
     "hint": [
         [
             "float",
             false
         ]
     ],
-    "hint_desc": null,
+    "hint_desc": "- Probability of team 2 beating team 1.",
     "tags": [],
     "modifiers": 0,
     "is_by_ref": "",
@@ -21,8 +21,8 @@
     "parameters": {
         "elo1": {
             "name": "elo1",
-            "line": 5,
-            "short_desc": null,
+            "line": 16,
+            "short_desc": "- Elo rating of first team.",
             "long_desc": null,
             "hint": [
                 [
@@ -39,8 +39,8 @@
         },
         "elo2": {
             "name": "elo2",
-            "line": 5,
-            "short_desc": null,
+            "line": 16,
+            "short_desc": "- Elo rating of second team.",
             "long_desc": null,
             "hint": [
                 [
