@@ -17,7 +17,7 @@ class TeamController extends Controller {
         $team = Team::with('members')->find($team_id);
         if (!$team)
             return self::noResourceResponse();
-        return self::successfulRsponse($team);
+        return self::successfulResponse($team);
     }
     public function getTeamFromPlayers(Request $request) {
         $validator = Validator::make($request->all(), [
