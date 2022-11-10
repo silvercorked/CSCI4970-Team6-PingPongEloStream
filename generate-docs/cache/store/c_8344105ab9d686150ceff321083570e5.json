@@ -8,7 +8,7 @@
     "namespace": "App\\Models",
     "file": "..\\app\\Models\\SeasonalElo.php",
     "relative_file": null,
-    "hash": "89746aed2ab64ae449902e7dfc65a4c1fe01eeab",
+    "hash": "b9aa64963d6fa286fb1e96da890c12e97c98033c",
     "parent": "Illuminate\\Database\\Eloquent\\Relations\\Pivot",
     "modifiers": 0,
     "is_trait": false,

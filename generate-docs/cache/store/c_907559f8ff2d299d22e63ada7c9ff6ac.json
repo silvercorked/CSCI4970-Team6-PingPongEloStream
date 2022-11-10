@@ -1,37 +1,40 @@
 {
-    "name": "App\\Http\\Controllers\\GameController",
-    "line": 15,
+    "name": "__TwigTemplate_7684291e96211573543294a68804e02a",
+    "line": 16,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
     "tags": [],
-    "namespace": "App\\Http\\Controllers",
-    "file": "..\\app\\Http\\Controllers\\GameController.php",
+    "namespace": "",
+    "file": "..\\generate-docs\\cache\\twig\\d0\\d063eabb863666efbb51e3113e1ab6e2.php",
     "relative_file": null,
-    "hash": "b36aaeb7f2f94a3ab1e69441179cba757db2d7f5",
-    "parent": "App\\Http\\Controllers\\Controller",
+    "hash": "86b81028104b08449515290c404d5ca5e8cac49c",
+    "parent": "Twig\\Template",
     "modifiers": 0,
     "is_trait": false,
     "is_interface": false,
     "is_read_only": false,
     "aliases": {
-        "Inertia": "Inertia\\Inertia",
-        "Request": "Illuminate\\Http\\Request",
-        "Validator": "Validator",
-        "Game": "App\\Models\\Game",
-        "Mode": "App\\Models\\Mode",
-        "Season": "App\\Models\\Season",
-        "Team": "App\\Models\\Team",
-        "User": "App\\Models\\User"
+        "Environment": "Twig\\Environment",
+        "LoaderError": "Twig\\Error\\LoaderError",
+        "RuntimeError": "Twig\\Error\\RuntimeError",
+        "SandboxExtension": "Twig\\Extension\\SandboxExtension",
+        "Markup": "Twig\\Markup",
+        "SecurityError": "Twig\\Sandbox\\SecurityError",
+        "SecurityNotAllowedTagError": "Twig\\Sandbox\\SecurityNotAllowedTagError",
+        "SecurityNotAllowedFilterError": "Twig\\Sandbox\\SecurityNotAllowedFilterError",
+        "SecurityNotAllowedFunctionError": "Twig\\Sandbox\\SecurityNotAllowedFunctionError",
+        "Source": "Twig\\Source",
+        "Template": "Twig\\Template"
     },
     "errors": [],
     "interfaces": [],
     "traits": [],
     "properties": [],
     "methods": {
-        "base": {
-            "name": "base",
-            "line": 16,
+        "__construct": {
+            "name": "__construct",
+            "line": 21,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -43,102 +46,14 @@
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 16,
+                "env": {
+                    "name": "env",
+                    "line": 21,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "season_id": {
-                    "name": "season_id",
-                    "line": 16,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "int",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": "null",
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                }
-            }
-        },
-        "all": {
-            "name": "all",
-            "line": 25,
-            "short_desc": null,
-            "long_desc": null,
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "see": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 25,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "type": {
-                    "name": "type",
-                    "line": 25,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "App\\Http\\Controllers\\string|null",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "season_id": {
-                    "name": "season_id",
-                    "line": 25,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "App\\Http\\Controllers\\int|null",
+                            "\\Twig\\Environment",
                             false
                         ]
                     ],
@@ -151,100 +66,28 @@
                 }
             }
         },
-        "paginated": {
-            "name": "paginated",
-            "line": 48,
+        "doGetParent": {
+            "name": "doGetParent",
+            "line": 38,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
             "hint_desc": null,
             "tags": [],
             "see": [],
-            "modifiers": 1,
+            "modifiers": 2,
             "is_by_ref": "",
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 48,
+                "context": {
+                    "name": "context",
+                    "line": 38,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "page": {
-                    "name": "page",
-                    "line": 48,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "int",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "size": {
-                    "name": "size",
-                    "line": 48,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "int",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "type": {
-                    "name": "type",
-                    "line": 48,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "App\\Http\\Controllers\\string|null",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "season_id": {
-                    "name": "season_id",
-                    "line": 48,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "App\\Http\\Controllers\\int|null",
+                            "array",
                             false
                         ]
                     ],
@@ -257,9 +100,61 @@
                 }
             }
         },
-        "getOne": {
-            "name": "getOne",
-            "line": 74,
+        "doDisplay": {
+            "name": "doDisplay",
+            "line": 44,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "context": {
+                    "name": "context",
+                    "line": 44,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "blocks": {
+                    "name": "blocks",
+                    "line": 44,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "block_content": {
+            "name": "block_content",
+            "line": 52,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -271,27 +166,9 @@
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 74,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "game_id": {
-                    "name": "game_id",
-                    "line": 74,
+                "context": {
+                    "name": "context",
+                    "line": 52,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -301,78 +178,44 @@
                     "variadic": false,
                     "is_by_ref": false,
                     "is_read_only": false
-                }
-            }
-        },
-        "store": {
-            "name": "store",
-            "line": 80,
-            "short_desc": null,
-            "long_desc": null,
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "see": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 80,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                }
-            }
-        },
-        "update": {
-            "name": "update",
-            "line": 115,
-            "short_desc": null,
-            "long_desc": null,
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "see": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 115,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
                 },
-                "game_id": {
-                    "name": "game_id",
-                    "line": 115,
+                "blocks": {
+                    "name": "blocks",
+                    "line": 52,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "block_below_menu": {
+            "name": "block_below_menu",
+            "line": 90,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "context": {
+                    "name": "context",
+                    "line": 90,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -382,12 +225,30 @@
                     "variadic": false,
                     "is_by_ref": false,
                     "is_read_only": false
+                },
+                "blocks": {
+                    "name": "blocks",
+                    "line": 90,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
                 }
             }
         },
-        "play": {
-            "name": "play",
-            "line": 146,
+        "block_page_content": {
+            "name": "block_page_content",
+            "line": 97,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -399,27 +260,9 @@
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 146,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "game_id": {
-                    "name": "game_id",
-                    "line": 146,
+                "context": {
+                    "name": "context",
+                    "line": 97,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -429,12 +272,218 @@
                     "variadic": false,
                     "is_by_ref": false,
                     "is_read_only": false
+                },
+                "blocks": {
+                    "name": "blocks",
+                    "line": 97,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
                 }
             }
         },
-        "progress": {
-            "name": "progress",
-            "line": 158,
+        "block_menu": {
+            "name": "block_menu",
+            "line": 104,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "context": {
+                    "name": "context",
+                    "line": 104,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "blocks": {
+                    "name": "blocks",
+                    "line": 104,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "block_leftnav": {
+            "name": "block_leftnav",
+            "line": 215,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "context": {
+                    "name": "context",
+                    "line": 215,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "blocks": {
+                    "name": "blocks",
+                    "line": 215,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "block_control_panel": {
+            "name": "block_control_panel",
+            "line": 224,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "context": {
+                    "name": "context",
+                    "line": 224,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "blocks": {
+                    "name": "blocks",
+                    "line": 224,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "block_footer": {
+            "name": "block_footer",
+            "line": 295,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "context": {
+                    "name": "context",
+                    "line": 295,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "blocks": {
+                    "name": "blocks",
+                    "line": 295,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "getTemplateName": {
+            "name": "getTemplateName",
+            "line": 333,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -447,9 +496,9 @@
             "errors": [],
             "parameters": []
         },
-        "complete": {
-            "name": "complete",
-            "line": 161,
+        "isTraitable": {
+            "name": "isTraitable",
+            "line": 338,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -460,39 +509,37 @@
             "is_by_ref": "",
             "exceptions": [],
             "errors": [],
-            "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 161,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "game_id": {
-                    "name": "game_id",
-                    "line": 161,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": null,
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                }
-            }
+            "parameters": []
+        },
+        "getDebugInfo": {
+            "name": "getDebugInfo",
+            "line": 343,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getSourceContext": {
+            "name": "getSourceContext",
+            "line": 348,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
         }
     },
     "constants": []

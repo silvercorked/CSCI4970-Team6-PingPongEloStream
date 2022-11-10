@@ -1,32 +1,40 @@
 {
-    "name": "App\\Http\\Controllers\\PlayerController",
-    "line": 10,
+    "name": "__TwigTemplate_259c1cee10b13a975bc6479f45b9227d",
+    "line": 16,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
     "tags": [],
-    "namespace": "App\\Http\\Controllers",
-    "file": "..\\app\\Http\\Controllers\\PlayerController.php",
+    "namespace": "",
+    "file": "..\\generate-docs\\cache\\twig\\5c\\5c15e544e10e9cd6dba443fa46c75cb6.php",
     "relative_file": null,
-    "hash": "c811afdf8b5cb9fed57b63db0b9c19922abb9013",
-    "parent": "App\\Http\\Controllers\\Controller",
+    "hash": "be146c6f3ac8ad278b8dcd242fb112311056fbe5",
+    "parent": "Twig\\Template",
     "modifiers": 0,
     "is_trait": false,
     "is_interface": false,
     "is_read_only": false,
     "aliases": {
-        "Inertia": "Inertia\\Inertia",
-        "Request": "Illuminate\\Http\\Request",
-        "User": "App\\Models\\User"
+        "Environment": "Twig\\Environment",
+        "LoaderError": "Twig\\Error\\LoaderError",
+        "RuntimeError": "Twig\\Error\\RuntimeError",
+        "SandboxExtension": "Twig\\Extension\\SandboxExtension",
+        "Markup": "Twig\\Markup",
+        "SecurityError": "Twig\\Sandbox\\SecurityError",
+        "SecurityNotAllowedTagError": "Twig\\Sandbox\\SecurityNotAllowedTagError",
+        "SecurityNotAllowedFilterError": "Twig\\Sandbox\\SecurityNotAllowedFilterError",
+        "SecurityNotAllowedFunctionError": "Twig\\Sandbox\\SecurityNotAllowedFunctionError",
+        "Source": "Twig\\Source",
+        "Template": "Twig\\Template"
     },
     "errors": [],
     "interfaces": [],
     "traits": [],
     "properties": [],
     "methods": {
-        "base": {
-            "name": "base",
-            "line": 12,
+        "__construct": {
+            "name": "__construct",
+            "line": 21,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -38,14 +46,14 @@
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 12,
+                "env": {
+                    "name": "env",
+                    "line": 21,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\Illuminate\\Http\\Request",
+                            "\\Twig\\Environment",
                             false
                         ]
                     ],
@@ -58,28 +66,28 @@
                 }
             }
         },
-        "all": {
-            "name": "all",
-            "line": 20,
+        "doGetParent": {
+            "name": "doGetParent",
+            "line": 34,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
             "hint_desc": null,
             "tags": [],
             "see": [],
-            "modifiers": 1,
+            "modifiers": 2,
             "is_by_ref": "",
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 20,
+                "context": {
+                    "name": "context",
+                    "line": 34,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\Illuminate\\Http\\Request",
+                            "array",
                             false
                         ]
                     ],
@@ -92,28 +100,28 @@
                 }
             }
         },
-        "getOne": {
-            "name": "getOne",
-            "line": 39,
+        "doDisplay": {
+            "name": "doDisplay",
+            "line": 40,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
             "hint_desc": null,
             "tags": [],
             "see": [],
-            "modifiers": 1,
+            "modifiers": 2,
             "is_by_ref": "",
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 39,
+                "context": {
+                    "name": "context",
+                    "line": 40,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\Illuminate\\Http\\Request",
+                            "array",
                             false
                         ]
                     ],
@@ -124,24 +132,29 @@
                     "is_by_ref": false,
                     "is_read_only": false
                 },
-                "user_id": {
-                    "name": "user_id",
-                    "line": 39,
+                "blocks": {
+                    "name": "blocks",
+                    "line": 40,
                     "short_desc": null,
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": 0,
-                    "default": null,
+                    "default": "[]",
                     "variadic": false,
                     "is_by_ref": false,
                     "is_read_only": false
                 }
             }
         },
-        "getProfileInfo": {
-            "name": "getProfileInfo",
-            "line": 45,
+        "block_title": {
+            "name": "block_title",
+            "line": 51,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -153,17 +166,12 @@
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 45,
+                "context": {
+                    "name": "context",
+                    "line": 51,
                     "short_desc": null,
                     "long_desc": null,
-                    "hint": [
-                        [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
+                    "hint": null,
                     "tags": [],
                     "modifiers": 0,
                     "default": null,
@@ -171,80 +179,46 @@
                     "is_by_ref": false,
                     "is_read_only": false
                 },
-                "player_id": {
-                    "name": "player_id",
-                    "line": 45,
+                "blocks": {
+                    "name": "blocks",
+                    "line": 51,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "block_body_class": {
+            "name": "block_body_class",
+            "line": 60,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "context": {
+                    "name": "context",
+                    "line": 60,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                }
-            }
-        },
-        "updateProfile": {
-            "name": "updateProfile",
-            "line": 54,
-            "short_desc": null,
-            "long_desc": null,
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "see": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 54,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                }
-            }
-        },
-        "getSinglesTeamAndUser": {
-            "name": "getSinglesTeamAndUser",
-            "line": 57,
-            "short_desc": null,
-            "long_desc": null,
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "see": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 57,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\Illuminate\\Http\\Request",
-                            false
-                        ]
-                    ],
                     "tags": [],
                     "modifiers": 0,
                     "default": null,
@@ -252,9 +226,43 @@
                     "is_by_ref": false,
                     "is_read_only": false
                 },
-                "player_id": {
-                    "name": "player_id",
-                    "line": 57,
+                "blocks": {
+                    "name": "blocks",
+                    "line": 60,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "block_page_content": {
+            "name": "block_page_content",
+            "line": 67,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "context": {
+                    "name": "context",
+                    "line": 67,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -264,8 +272,86 @@
                     "variadic": false,
                     "is_by_ref": false,
                     "is_read_only": false
+                },
+                "blocks": {
+                    "name": "blocks",
+                    "line": 67,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "[]",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
                 }
             }
+        },
+        "getTemplateName": {
+            "name": "getTemplateName",
+            "line": 85,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "isTraitable": {
+            "name": "isTraitable",
+            "line": 90,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getDebugInfo": {
+            "name": "getDebugInfo",
+            "line": 95,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getSourceContext": {
+            "name": "getSourceContext",
+            "line": 100,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
         }
     },
     "constants": []

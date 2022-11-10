@@ -1,0 +1,118 @@
+{
+    "name": "App\\ELO\\ELO",
+    "line": 5,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\ELO",
+    "file": "..\\app\\ELO\\ELO.php",
+    "relative_file": null,
+    "hash": "6f0a06adb4e424fe284dcbec0bc4506384eb2fd7",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": [],
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "eloRatingUpdate": {
+            "name": "eloRatingUpdate",
+            "line": 31,
+            "short_desc": "Uses the probability of winning, based solely on elo scores, to compute the change to\neach elo score given which team wins.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "- containing new elo1 at 0 and new elo2 at 1",
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "elo1": {
+                    "name": "elo1",
+                    "line": 31,
+                    "short_desc": "- Elo rating of first team.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "float",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "elo2": {
+                    "name": "elo2",
+                    "line": 31,
+                    "short_desc": "- Elo rating of second team.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "float",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "team1Won": {
+                    "name": "team1Won",
+                    "line": 31,
+                    "short_desc": "- True if team 1 won the game, false otherwise.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "bool",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "true",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "K": {
+                    "name": "K",
+                    "line": 31,
+                    "short_desc": "- maximum amount of elo change possible.",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": "30",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

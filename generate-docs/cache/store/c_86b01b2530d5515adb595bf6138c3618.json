@@ -1,6 +1,6 @@
 {
     "name": "App\\Http\\Controllers\\LeaderboardController",
-    "line": 13,
+    "line": 14,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "..\\app\\Http\\Controllers\\LeaderboardController.php",
     "relative_file": null,
-    "hash": "5ebebbb7a438232205b4abde079368b9942202af",
+    "hash": "9b2ea80f37aadf4b2bdc7901b1f2934d6e950aa0",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -18,6 +18,7 @@
         "DB": "DB",
         "Inertia": "Inertia\\Inertia",
         "Request": "Illuminate\\Http\\Request",
+        "Collection": "Illuminate\\Database\\Eloquent\\Collection",
         "Season": "App\\Models\\Season",
         "Team": "App\\Models\\Team",
         "User": "App\\Models\\User"
@@ -27,8 +28,8 @@
     "traits": [],
     "properties": [],
     "methods": {
-        "singles": {
-            "name": "singles",
+        "getPlayerSinglesRankingAndElo": {
+            "name": "getPlayerSinglesRankingAndElo",
             "line": 15,
             "short_desc": null,
             "long_desc": null,
@@ -59,6 +60,19 @@
                     "is_by_ref": false,
                     "is_read_only": false
                 },
+                "player_id": {
+                    "name": "player_id",
+                    "line": 15,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
                 "season_id": {
                     "name": "season_id",
                     "line": 15,
@@ -74,9 +88,9 @@
                 }
             }
         },
-        "doubles": {
-            "name": "doubles",
-            "line": 27,
+        "base": {
+            "name": "base",
+            "line": 32,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -90,7 +104,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 27,
+                    "line": 32,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -106,12 +120,35 @@
                     "is_by_ref": false,
                     "is_read_only": false
                 },
-                "season_id": {
-                    "name": "season_id",
-                    "line": 27,
+                "which": {
+                    "name": "which",
+                    "line": 32,
                     "short_desc": null,
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "season_id": {
+                    "name": "season_id",
+                    "line": 32,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": 0,
                     "default": "null",
@@ -121,9 +158,9 @@
                 }
             }
         },
-        "getPlayerSinglesRankingAndElo": {
-            "name": "getPlayerSinglesRankingAndElo",
-            "line": 39,
+        "paginatedSingles": {
+            "name": "paginatedSingles",
+            "line": 56,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -137,7 +174,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 39,
+                    "line": 56,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -153,12 +190,17 @@
                     "is_by_ref": false,
                     "is_read_only": false
                 },
-                "player_id": {
-                    "name": "player_id",
-                    "line": 39,
+                "page": {
+                    "name": "page",
+                    "line": 56,
                     "short_desc": null,
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": 0,
                     "default": null,
@@ -166,38 +208,9 @@
                     "is_by_ref": false,
                     "is_read_only": false
                 },
-                "season_id": {
-                    "name": "season_id",
-                    "line": 39,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": null,
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": "null",
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                }
-            }
-        },
-        "getLeaderboardTeams": {
-            "name": "getLeaderboardTeams",
-            "line": 55,
-            "short_desc": null,
-            "long_desc": null,
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "see": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "teamSize": {
-                    "name": "teamSize",
-                    "line": 55,
+                "size": {
+                    "name": "size",
+                    "line": 56,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -215,7 +228,251 @@
                 },
                 "season": {
                     "name": "season",
-                    "line": 55,
+                    "line": 56,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Models\\Season",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "paginatedDoubles": {
+            "name": "paginatedDoubles",
+            "line": 59,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 59,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "page": {
+                    "name": "page",
+                    "line": 59,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "size": {
+                    "name": "size",
+                    "line": 59,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "season": {
+                    "name": "season",
+                    "line": 59,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Models\\Season",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "singles": {
+            "name": "singles",
+            "line": 76,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 76,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "season": {
+                    "name": "season",
+                    "line": 76,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Models\\Season",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "doubles": {
+            "name": "doubles",
+            "line": 79,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 79,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "season": {
+                    "name": "season",
+                    "line": 79,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Models\\Season",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "getLeaderboardTeams": {
+            "name": "getLeaderboardTeams",
+            "line": 96,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "teamSize": {
+                    "name": "teamSize",
+                    "line": 96,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "season": {
+                    "name": "season",
+                    "line": 96,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Database\Seeders\GameSeeder | CSCI 4970 Ping Pong Elo Stream API</title>
+    <title>App\ELO\ELO | CSCI 4970 Ping Pong Elo Stream API</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
 
     </head>
 
-    <body id="class" data-name="class:Database_Seeders_GameSeeder" data-root-path="../../" data-search-index-url="../../doctum-search.json">
+    <body id="class" data-name="class:App_ELO_ELO" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -75,18 +75,18 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../Database.html">Database</a></li><li class="backslash">\</li><li><a href="../../Database/Seeders.html">Seeders</a></li><li class="backslash">\</li><li>GameSeeder</li>
+                        <li><a href="../../App.html">App</a></li><li class="backslash">\</li><li><a href="../../App/ELO.html">ELO</a></li><li class="backslash">\</li><li>ELO</li>
             </ol>
         </div>
                 <div id="page-content">
     <div class="page-header">
-        <h1>GameSeeder    
+        <h1>ELO    
             </h1>
     </div>
 
     
     <p>        class
-    <strong>GameSeeder</strong>        extends <abbr title="Illuminate\Database\Seeder">Seeder</abbr>
+    <strong>ELO</strong>
 </p>
 
         
@@ -102,12 +102,13 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    void
+                    static&nbsp;array
                 </div>
                 <div class="col-md-8">
-                    <a href="#method_run">run</a>()
+                    <a href="#method_eloRatingUpdate">eloRatingUpdate</a>(float $elo1, float $elo2, bool $team1Won = true, int $K = 30)
         
-                                            <p><p>Run the database seeds.</p></p>                </div>
+                                            <p><p>Uses the probability of winning, based solely on elo scores, to compute the change to
+each elo score given which team wins.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -117,10 +118,10 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_run">
-        <div class="location">at line 24</div>
-        <code>                    void
-    <strong>run</strong>()
+                    <h3 id="method_eloRatingUpdate">
+        <div class="location">at line 31</div>
+        <code>        static            array
+    <strong>eloRatingUpdate</strong>(float $elo1, float $elo2, bool $team1Won = true, int $K = 30)
         </code>
     </h3>
     <div class="details">    
@@ -128,16 +129,52 @@
             
 
         <div class="method-description">
-                            <p><p>Run the database seeds.</p></p>                        
+                            <p><p>Uses the probability of winning, based solely on elo scores, to compute the change to
+each elo score given which team wins.</p></p>                        
         </div>
         <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>float</td>
+                <td>$elo1</td>
+                <td><ul>
+<li>Elo rating of first team.</li>
+</ul></td>
+            </tr>
+                    <tr>
+                <td>float</td>
+                <td>$elo2</td>
+                <td><ul>
+<li>Elo rating of second team.</li>
+</ul></td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$team1Won</td>
+                <td><ul>
+<li>True if team 1 won the game, false otherwise.</li>
+</ul></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$K</td>
+                <td><ul>
+<li>maximum amount of elo change possible.</li>
+</ul></td>
+            </tr>
+            </table>
+
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>void</td>
-            <td></td>
+            <td>array</td>
+            <td><ul>
+<li>containing new elo1 at 0 and new elo2 at 1</li>
+</ul></td>
         </tr>
     </table>
 

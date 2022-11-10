@@ -169,25 +169,15 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    static&nbsp;<abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr>
                 </div>
                 <div class="col-md-8">
-                    <a href="#method_singles">singles</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $season_id = null)
+                    <a href="#method_getPaginated">getPaginated</a>(int $page, int $size, <abbr title="Illuminate\Database\Eloquent\Model|Illuminate\Database\Eloquent\Builder">Builder</abbr> $m)
         
                                             <p class="no-description">No description</p>
                                     </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_doubles">doubles</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $season_id = null)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Http/Controllers/Controller.html#method_getPaginated">
+<abbr title="App\Http\Controllers\Controller">Controller</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
@@ -205,6 +195,61 @@
                     
                 </div>
                 <div class="col-md-8">
+                    <a href="#method_base">base</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, string $which, int $season_id = null)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_paginatedSingles">paginatedSingles</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $page, int $size, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_paginatedDoubles">paginatedDoubles</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $page, int $size, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_singles">singles</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_doubles">doubles</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+                </div>
+                <div class="col-md-8">
                     <a href="#method_getLeaderboardTeams">getLeaderboardTeams</a>(int $teamSize, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
         
                                             <p class="no-description">No description</p>
@@ -220,7 +265,7 @@
                     <div class="method-item">
                     <h3 id="method_noResourceResponse">
         <div class="location">in <a href="../../../App/Http/Controllers/Controller.html#method_noResourceResponse">
-<abbr title="App\Http\Controllers\Controller">Controller</abbr></a> at line 13</div>
+<abbr title="App\Http\Controllers\Controller">Controller</abbr></a> at line 16</div>
         <code>        static            
     <strong>noResourceResponse</strong>($message = &#039;No resource found.&#039;, $status = 404)
         </code>
@@ -260,7 +305,7 @@
                     <div class="method-item">
                     <h3 id="method_successfulResponse">
         <div class="location">in <a href="../../../App/Http/Controllers/Controller.html#method_successfulResponse">
-<abbr title="App\Http\Controllers\Controller">Controller</abbr></a> at line 16</div>
+<abbr title="App\Http\Controllers\Controller">Controller</abbr></a> at line 19</div>
         <code>        static            
     <strong>successfulResponse</strong>($message, $statusCode = 200)
         </code>
@@ -300,7 +345,7 @@
                     <div class="method-item">
                     <h3 id="method_unsuccessfulResponse">
         <div class="location">in <a href="../../../App/Http/Controllers/Controller.html#method_unsuccessfulResponse">
-<abbr title="App\Http\Controllers\Controller">Controller</abbr></a> at line 19</div>
+<abbr title="App\Http\Controllers\Controller">Controller</abbr></a> at line 22</div>
         <code>        static            
     <strong>unsuccessfulResponse</strong>($message, $statusCode = 400)
         </code>
@@ -340,7 +385,7 @@
                     <div class="method-item">
                     <h3 id="method_createResponse">
         <div class="location">in <a href="../../../App/Http/Controllers/Controller.html#method_createResponse">
-<abbr title="App\Http\Controllers\Controller">Controller</abbr></a> at line 31</div>
+<abbr title="App\Http\Controllers\Controller">Controller</abbr></a> at line 34</div>
         <code>        static            <abbr title="Illuminate\Support\Facades\Response">Response</abbr>
     <strong>createResponse</strong>(mixed $message, bool $success, int $statusCode)
         </code>
@@ -391,10 +436,11 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_singles">
-        <div class="location">at line 15</div>
-        <code>                    
-    <strong>singles</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $season_id = null)
+                    <h3 id="method_getPaginated">
+        <div class="location">in <a href="../../../App/Http/Controllers/Controller.html#method_getPaginated">
+<abbr title="App\Http\Controllers\Controller">Controller</abbr></a> at line 41</div>
+        <code>        static            <abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr>
+    <strong>getPaginated</strong>(int $page, int $size, <abbr title="Illuminate\Database\Eloquent\Model|Illuminate\Database\Eloquent\Builder">Builder</abbr> $m)
         </code>
     </h3>
     <div class="details">    
@@ -410,57 +456,32 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
+                <td>int</td>
+                <td>$page</td>
                 <td></td>
             </tr>
                     <tr>
+                <td>int</td>
+                <td>$size</td>
                 <td></td>
-                <td>$season_id</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Illuminate\Database\Eloquent\Model|Illuminate\Database\Eloquent\Builder">Builder</abbr></td>
+                <td>$m</td>
                 <td></td>
             </tr>
             </table>
 
             
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_doubles">
-        <div class="location">at line 27</div>
-        <code>                    
-    <strong>doubles</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $season_id = null)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$season_id</td>
-                <td></td>
-            </tr>
-            </table>
+        <tr>
+            <td><abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr></td>
+            <td></td>
+        </tr>
+    </table>
 
-            
             
             
             
@@ -470,7 +491,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getPlayerSinglesRankingAndElo">
-        <div class="location">at line 39</div>
+        <div class="location">at line 15</div>
         <code>                    
     <strong>getPlayerSinglesRankingAndElo</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $player_id, $season_id = null)
         </code>
@@ -513,9 +534,229 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getLeaderboardTeams">
-        <div class="location">at line 55</div>
+                    <h3 id="method_base">
+        <div class="location">at line 32</div>
         <code>                    
+    <strong>base</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, string $which, int $season_id = null)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$which</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$season_id</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_paginatedSingles">
+        <div class="location">at line 56</div>
+        <code>                    
+    <strong>paginatedSingles</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $page, int $size, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$page</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$size</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a></td>
+                <td>$season</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_paginatedDoubles">
+        <div class="location">at line 59</div>
+        <code>                    
+    <strong>paginatedDoubles</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $page, int $size, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$page</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$size</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a></td>
+                <td>$season</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_singles">
+        <div class="location">at line 76</div>
+        <code>                    
+    <strong>singles</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a></td>
+                <td>$season</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_doubles">
+        <div class="location">at line 79</div>
+        <code>                    
+    <strong>doubles</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a></td>
+                <td>$season</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getLeaderboardTeams">
+        <div class="location">at line 96</div>
+        <code>        static            
     <strong>getLeaderboardTeams</strong>(int $teamSize, <a href="../../../App/Models/Season.html"><abbr title="App\Models\Season">Season</abbr></a> $season)
         </code>
     </h3>

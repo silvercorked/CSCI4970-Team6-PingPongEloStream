@@ -1,6 +1,6 @@
 {
     "name": "Database\\Seeders\\GameSeeder",
-    "line": 16,
+    "line": 18,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "Database\\Seeders",
     "file": "..\\database\\seeders\\GameSeeder.php",
     "relative_file": null,
-    "hash": "51685246d240a435a1e58bf2fff7b0e01ae89fb1",
+    "hash": "63b332756cb13ddc640d0fc0553f4d8bd7ca8ac8",
     "parent": "Illuminate\\Database\\Seeder",
     "modifiers": 0,
     "is_trait": false,
@@ -23,7 +23,8 @@
         "Point": "App\\Models\\Point",
         "Team": "App\\Models\\Team",
         "Season": "App\\Models\\Season",
-        "Set": "App\\Models\\Set"
+        "Set": "App\\Models\\Set",
+        "ELO": "ELO"
     },
     "errors": [],
     "interfaces": [],
@@ -32,7 +33,7 @@
     "methods": {
         "run": {
             "name": "run",
-            "line": 22,
+            "line": 24,
             "short_desc": "Run the database seeds.",
             "long_desc": "",
             "hint": [

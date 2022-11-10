@@ -8,7 +8,7 @@
     "namespace": "App\\Models",
     "file": "..\\app\\Models\\Game.php",
     "relative_file": null,
-    "hash": "6d59a7b6888e5c11dd8049aac46b1678b6839274",
+    "hash": "bec1aa55403d33043e909163f45e86ebdfdbd9d3",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,

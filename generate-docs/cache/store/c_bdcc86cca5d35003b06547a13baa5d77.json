@@ -1,6 +1,6 @@
 {
     "name": "App\\Http\\Controllers\\Controller",
-    "line": 10,
+    "line": 13,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "..\\app\\Http\\Controllers\\Controller.php",
     "relative_file": null,
-    "hash": "a9ffb7f19f28a03d1da6cd390821a6d264128f16",
+    "hash": "cd35a8675c5579009b67e0dd539d53452828846b",
     "parent": "Illuminate\\Routing\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -18,7 +18,9 @@
         "AuthorizesRequests": "Illuminate\\Foundation\\Auth\\Access\\AuthorizesRequests",
         "DispatchesJobs": "Illuminate\\Foundation\\Bus\\DispatchesJobs",
         "ValidatesRequests": "Illuminate\\Foundation\\Validation\\ValidatesRequests",
-        "BaseController": "Illuminate\\Routing\\Controller"
+        "BaseController": "Illuminate\\Routing\\Controller",
+        "Builder": "Illuminate\\Database\\Eloquent\\Builder",
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
     },
     "errors": [],
     "interfaces": [],
@@ -31,48 +33,6 @@
     "methods": {
         "noResourceResponse": {
             "name": "noResourceResponse",
-            "line": 13,
-            "short_desc": null,
-            "long_desc": null,
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "see": [],
-            "modifiers": 9,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "message": {
-                    "name": "message",
-                    "line": 13,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": null,
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": "'No resource found.'",
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                },
-                "status": {
-                    "name": "status",
-                    "line": 13,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": null,
-                    "tags": [],
-                    "modifiers": 0,
-                    "default": "404",
-                    "variadic": false,
-                    "is_by_ref": false,
-                    "is_read_only": false
-                }
-            }
-        },
-        "successfulResponse": {
-            "name": "successfulResponse",
             "line": 16,
             "short_desc": null,
             "long_desc": null,
@@ -93,28 +53,28 @@
                     "hint": null,
                     "tags": [],
                     "modifiers": 0,
-                    "default": null,
+                    "default": "'No resource found.'",
                     "variadic": false,
                     "is_by_ref": false,
                     "is_read_only": false
                 },
-                "statusCode": {
-                    "name": "statusCode",
+                "status": {
+                    "name": "status",
                     "line": 16,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
                     "tags": [],
                     "modifiers": 0,
-                    "default": "200",
+                    "default": "404",
                     "variadic": false,
                     "is_by_ref": false,
                     "is_read_only": false
                 }
             }
         },
-        "unsuccessfulResponse": {
-            "name": "unsuccessfulResponse",
+        "successfulResponse": {
+            "name": "successfulResponse",
             "line": 19,
             "short_desc": null,
             "long_desc": null,
@@ -148,6 +108,48 @@
                     "hint": null,
                     "tags": [],
                     "modifiers": 0,
+                    "default": "200",
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "unsuccessfulResponse": {
+            "name": "unsuccessfulResponse",
+            "line": 22,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "message": {
+                    "name": "message",
+                    "line": 22,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "statusCode": {
+                    "name": "statusCode",
+                    "line": 22,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": 0,
                     "default": "400",
                     "variadic": false,
                     "is_by_ref": false,
@@ -157,7 +159,7 @@
         },
         "createResponse": {
             "name": "createResponse",
-            "line": 31,
+            "line": 34,
             "short_desc": "Formulates information from the API into a consistently shaped response.",
             "long_desc": "",
             "hint": [
@@ -176,7 +178,7 @@
             "parameters": {
                 "message": {
                     "name": "message",
-                    "line": 31,
+                    "line": 34,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -194,7 +196,7 @@
                 },
                 "success": {
                     "name": "success",
-                    "line": 31,
+                    "line": 34,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -212,12 +214,87 @@
                 },
                 "statusCode": {
                     "name": "statusCode",
-                    "line": 31,
+                    "line": 34,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
                             "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "getPaginated": {
+            "name": "getPaginated",
+            "line": 41,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Builder",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "page": {
+                    "name": "page",
+                    "line": 41,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "size": {
+                    "name": "size",
+                    "line": 41,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "m": {
+                    "name": "m",
+                    "line": 41,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Database\\Eloquent\\Model|Illuminate\\Database\\Eloquent\\Builder",
                             false
                         ]
                     ],
