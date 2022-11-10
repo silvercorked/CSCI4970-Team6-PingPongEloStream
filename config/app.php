@@ -195,6 +195,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Providers\ELOServiceProvider::class,
+
     ],
 
     /*
@@ -209,6 +211,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'ELO'   =>  App\ELO\ELOFacade::class
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

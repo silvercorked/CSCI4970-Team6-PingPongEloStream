@@ -13,6 +13,8 @@ use App\Models\Team;
 use App\Models\Season;
 use App\Models\Set;
 
+use ELO;
+
 class GameSeeder extends Seeder {
     /**
      * Run the database seeds.
@@ -22,6 +24,8 @@ class GameSeeder extends Seeder {
     public function run() {
         $this->fillSeason(1);
         $this->fillSeason(2);
+        $this->scheduleGames(10);
+        $this->startGames(2);
     }
 
     private function getTeams($teams, $teamCount) {
@@ -29,7 +33,62 @@ class GameSeeder extends Seeder {
         return Team::with('members', 'elos')->findMany($picked);
     }
 
-    private function fillSeason($season_id) {
+    private function startGames(int $gamesToStart) {
+        $games = Game::where('started_at', null)->inRandomOrder()->get();
+        for ($i = 0; $i < $gamesToStart && $i < count($games); $i++) {
+            $games[$i]->started_at = $games[$i]->created_at
+                ->addSeconds(rand(
+                    0,
+                    Carbon::now()->diffInSeconds($games[$i]->started_at)
+                )
+            );
+            $games[$i]->save();
+        }
+    }
+
+    private function scheduleGames(int $gamesToSchedule) {
+        $season = Season::current();
+        $singles = Mode::find(1);
+        $doubles = Mode::find(2);
+        $teams = Team::with('members')->get();
+        $singlesTeams = collect();
+        $doublesTeams = collect();
+        for ($i = 0; $i < count($teams); $i++) {
+            $curr = $teams[$i];
+            if (count($curr->members) == 1)
+                $singlesTeams->add($curr->id);
+            else // member count must be 2
+                $doublesTeams->add($curr->id);
+        }
+
+        for ($i = 0; $i < $gamesToSchedule; $i++) {
+            $g = new Game();
+            $g->created_at = Carbon::today()
+                ->subDays(
+                    rand(1, 5))->addSeconds(rand(0, 86400));
+            $mode = mt_rand(0, 1) ? $singles : $doubles;
+            $teams = $this->getTeams($mode == $singles ? $singlesTeams : $doublesTeams, $mode->team_count);
+            $g->mode()->associate($mode);
+            $g->season()->associate($season);
+            $g->first_server = mt_rand(0, 1) == 0; // true = team1. false = team2
+            $team1FirstServer = $teams->first()->members[0];
+            $team2FirstServer = $teams->last()->members[0];
+            $g->team1FirstServer()->associate($team1FirstServer);
+            $g->team2FirstServer()->associate($team2FirstServer);
+            $g->save();
+            $g->teams()->attach($teams->first(), [
+                'set_score' => 0,
+                'team_number' => 1
+            ]);
+            $g->teams()->attach($teams->last(), [
+                'set_score' => 0,
+                'team_number' => 2
+            ]);
+        }
+    }
+
+    private function fillSeason(int $season_id, int $howMany = 100) {
+        $currSeason = Season::current();
         $season = Season::find($season_id);
         $singles = Mode::find(1);
         $doubles = Mode::find(2);
@@ -44,9 +103,15 @@ class GameSeeder extends Seeder {
                 $doublesTeams->add($curr->id);
         }
 
-        for ($i = 0; $i < 150; $i++) {
+        for ($i = 0; $i < $howMany; $i++) {
             $g = new Game();
-            $g->started_at = Carbon::now();
+            $g->started_at = Carbon::today()
+                ->subDays(
+                    rand(
+                        (180 * ($currSeason->id - $season->id)),
+                        (180 * ($currSeason->id - $season->id)) + 179
+                    ))->addSeconds(rand(0, 86400));
+            $g->created_at = $g->started_at;
             $mode = mt_rand(0, 1) ? $singles : $doubles;
             $teams = $this->getTeams($mode == $singles ? $singlesTeams : $doublesTeams, $mode->team_count);
             $g->mode()->associate($mode);
@@ -78,7 +143,7 @@ class GameSeeder extends Seeder {
                     return $e->season_id == $season_id;
                 }
             )->first();
-            $newElos = elo_rating_update($team1Elo->elo, $team2Elo->elo, $team1Wins);
+            $newElos = ELO::EloRatingUpdate($team1Elo->elo, $team2Elo->elo, $team1Wins);
             //dd($newElos, $team1Elo, $team2Elo, $team1Wins);
             $g->team1_elo_change = $team1Elo->elo - $newElos[0];
             $g->team2_elo_change = $team2Elo->elo - $newElos[1];
@@ -142,7 +207,8 @@ class GameSeeder extends Seeder {
                     $point->save();
                 }
             }
-            $g->completed_at = Carbon::now();
+            $g->completed_at = $g->started_at->addSeconds(rand(60, 3600));
+            $g->updated_at = $g->completed_at;
             $g->save();
         }
     }

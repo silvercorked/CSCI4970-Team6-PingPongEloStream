@@ -9,10 +9,31 @@ use App\Models\User;
 
 class PlayerController extends Controller {
 
+    public function base(Request $request) {
+        $page = $request->get('page');
+        $size = $request->get('size');
+        if ($page || $size)
+            return $this->paginated($request, $page ?? 1, $size ?? 15);
+        else
+            return $this->all($request);
+    }
     public function all(Request $request) {
-        $players = User::all();
+        $players = User::orderBy('created_at')->get();
         return self::successfulResponse([
             'players' => $players
+        ]);
+    }
+    private static function paginated(Request $request, int $page, int $size) {
+        if ($page < 0) $page = 1;
+        $page--; // page 1 starts at offset 0, so page X is actually offset $size * (x - 1)
+        if ($size <= 0) $size = 15;
+        $users = self::getPaginated(
+            $page,
+            $size,
+            User::orderBy('created_at')
+        )->get();
+        return self::successfulResponse([
+            'players' => $users
         ]);
     }
     public function getOne(Request $request, $user_id) {
