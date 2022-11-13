@@ -71,6 +71,6 @@ Route::group(['middleware' => ['auth:sanctum', 'isAdmin']], function() {
     Route::post('/games', [GameController::class, 'store'])->name('create a game');
     Route::put('/games/{game_id}', [GameController::class, 'update'])->name('edit a game that hasn\'t yet been played');
     Route::get('/games/{game_id}/play', [GameController::class, 'play'])->name('start playing a game');
-    Route::post('/games/{game_id}/playing', [GameController::class, 'progress'])->name('report scores while a game is in progress');
+    Route::post('/games/{game_id}/playing/sets/{set_number}', [GameController::class, 'progress'])->name('report scores while a game is in progress');
     Route::post('/games/{game_id}/complete', [GameController::class, 'complete'])->name('complete a game');
 });
