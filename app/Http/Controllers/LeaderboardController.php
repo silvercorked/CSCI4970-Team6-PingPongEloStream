@@ -69,7 +69,7 @@ class LeaderboardController extends Controller {
             self::getLeaderboardTeams($playerCount, $season)
         )->get();
         return self::successfulResponse([
-            'teams' => self::mapResults($teams),
+            'teams' => self::mapResults($teams, $season),
             'season_number' => $season->id
         ]);
     }
@@ -82,16 +82,38 @@ class LeaderboardController extends Controller {
     private static function getAll(Request $request, int $playerCount, Season $season) {
         $teams = self::getLeaderboardTeams($playerCount, $season)->get();
         return self::successfulResponse([
-            'teams' => self::mapResults($teams),
+            'teams' => self::mapResults($teams, $season),
             'season_number' => $season->id
         ]);
     }
-    private static function mapResults(Collection $teams) {
+    private static function mapResults(Collection $teams, Season $season) {
+        self::getTeamsStats($teams, $season->id);
         return $teams->map(fn ($team) => [
             'id' => $team->id,
             'members' => $team->members,
+            'wins' => $team->wins,
+            'totalGames' => $team->totalGames,
             'elo' => $team->elo
         ]);
+    }
+    public static function getTeamsStats(Collection &$teams, int $season_id) {
+        $teams->load([
+            'games' => function ($q) use ($season_id) {
+                $q->where('season_id', $season_id)
+                    ->withPivot('set_score');
+            }, 'games.mode'
+        ]);
+        for ($i = 0; $i < count($teams); $i++) {
+            $team = $teams[$i];
+            $team->totalGames = count($team->games);
+            $wins = 0;
+            for ($j = 0; $j < $team->totalGames; $j++) {
+                $winningSetScore = intval($team->games[$j]->mode->set_count / 2) + 1;
+                if ($team->games[$j]->pivot->set_score == $winningSetScore)
+                    $wins++;
+            }
+            $team->wins = $wins;
+        }
     }
     public static function getLeaderboardTeams(int $teamSize, Season $season) {
         return Team::select(['teams.*', 'seasonal_elos.elo'])
