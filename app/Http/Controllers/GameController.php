@@ -203,7 +203,6 @@ class GameController extends Controller {
             $set->set_number = $set_number;
             $set->game_id = $game->id;
             $this->populateSet($set, $request->points, $teamIds);
-            dd($set);
         }
         else
             return self::unsuccessfulResponse('Cannot create new set for this game.');
