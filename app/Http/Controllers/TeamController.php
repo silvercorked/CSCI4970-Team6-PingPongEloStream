@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Validator;
 
 use App\Models\Game;
+use App\Models\Season;
+use App\Models\SeasonalElo;
 use App\Models\Team;
 use App\Models\User;
 
@@ -56,8 +58,14 @@ class TeamController extends Controller {
         )->count() == 0;
         if (!$teamDoesntExist)
             return self::unsuccessfulResponse('Team already exists.');
+        $season = Season::current();
         $team = new Team();
         $team->save();
+        $elo = new SeasonalElo();
+        $elo->elo = 1500;
+        $elo->season_id = $season->id;
+        $elo->team_id = $team->id;
+        $elo->save();
         $team->members()->attach($ids);
         return self::successfulResponse($team);
     }
