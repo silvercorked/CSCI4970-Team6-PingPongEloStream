@@ -62,7 +62,7 @@ Route::group([], function() {
 // auth
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/self', [UserController::class, 'getSelf'])->name('get the user\'s user info');
-    Route::put('/profile', [PlayerController::class, 'updateProfile'])->name('edit user\'s profile');
+    Route::put('/profile', [UserController::class, 'updateUser'])->name('edit user\'s profile');
     Route::post('/teams', [TeamController::class, 'store'])->name('create a team');
 });
 // admin

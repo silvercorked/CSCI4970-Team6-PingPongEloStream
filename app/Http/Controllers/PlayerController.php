@@ -51,9 +51,6 @@ class PlayerController extends Controller {
             'player_is_user' => $request->user()->id === $player->id
         ]);
     }
-    public function updateProfile(Request $request) {
-
-    }
     public function getSinglesTeamAndUser(Request $request, $player_id) {
         $player = User::with(['teams', 'teams.members'])->find($player_id);
 
