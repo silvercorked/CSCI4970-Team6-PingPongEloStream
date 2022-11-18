@@ -81,6 +81,7 @@ class TeamController extends Controller {
             },
             'teams.members'
         ])->where('completed_at', '!=', null)
+        ->where('season_id', $season_id)
             ->orderByDesc('completed_at')->get();
         return self::successfulResponse([
             'team' => [
