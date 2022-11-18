@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/self', [UserController::class, 'getSelf'])->name('get the user\'s user info');
     Route::put('/profile', [UserController::class, 'updateUser'])->name('edit user\'s profile');
     Route::post('/teams', [TeamController::class, 'store'])->name('create a team');
+    Route::post('/profile/password', [AuthController::class, 'changePassword'])->name('change user\'s password');
     Route::post('/profile/delete', [UserController::class, 'deleteUser'])->name('delete user\'s profile');
 });
 // admin

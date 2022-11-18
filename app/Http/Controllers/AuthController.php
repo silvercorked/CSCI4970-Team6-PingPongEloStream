@@ -29,6 +29,22 @@ class AuthController extends Controller {
             'token' => $user->createToken($request->device_name)->plainTextToken
         ]);
     }
+    public function changePassword(Request $request) {
+        $user = auth()->user();
+        $validator = Validator::make($request->all(), [
+            'current_password' => 'required|string',
+            'password' => ['required', 'confirmed', Password::min(8)->letters()->mixedCase()->numbers()->symbols()->uncompromised()]
+        ]);
+        if ($validator->fails())
+            return self::unsuccessfulResponse($validator->errors());
+        if (!Hash::check($request->current_password, $user->password))
+            return self::unsuccessfulResponse([
+                'current_password' => ['Invalid Password.']
+            ]);
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return self::successfulResponse('Password Reset.');
+    }
     public function getToken(Request $request) {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|exists:users,email|min:5|max:255',
