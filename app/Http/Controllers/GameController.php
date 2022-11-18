@@ -332,8 +332,8 @@ class GameController extends Controller {
             }
         )->first();
         $newElos = ELO::EloRatingUpdate($team1Elo->elo, $team2Elo->elo, $team1Wins);
-        $game->team1_elo_change = $team1Elo->elo - $newElos[0];
-        $game->team2_elo_change = $team2Elo->elo - $newElos[1];
+        $game->team1_elo_change = $newElos[0] - $team1Elo->elo;
+        $game->team2_elo_change = $newElos[1] - $team2Elo->elo;
         $game->team1_elo_then = $newElos[0];
         $game->team2_elo_then = $newElos[1];
         $team1Elo->elo = $newElos[0];
