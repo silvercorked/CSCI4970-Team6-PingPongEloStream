@@ -145,8 +145,8 @@ class GameSeeder extends Seeder {
             )->first();
             $newElos = ELO::EloRatingUpdate($team1Elo->elo, $team2Elo->elo, $team1Wins);
             //dd($newElos, $team1Elo, $team2Elo, $team1Wins);
-            $g->team1_elo_change = $team1Elo->elo - $newElos[0];
-            $g->team2_elo_change = $team2Elo->elo - $newElos[1];
+            $g->team1_elo_change = $newElos[0] - $team1Elo->elo;
+            $g->team2_elo_change = $newElos[1] - $team2Elo->elo;
             $g->team1_elo_then = $newElos[0];
             $g->team2_elo_then = $newElos[1];
             $team1Elo->elo = $newElos[0];

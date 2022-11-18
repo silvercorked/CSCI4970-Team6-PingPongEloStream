@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\LivestreamController;
 use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\SeasonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,8 @@ Route::group([], function() {
     Route::get('/teams/{team_id}', [TeamController::class, 'getOne'])->name('get a team');
     Route::post('/players/teams', [TeamController::class, 'getTeamFromPlayers'])->name('get teams that each have members containing all given players');
     Route::get('/teams/{team_id}/games/{season_id}', [TeamController::class, 'getTeamGames'])->name('get games for given team');
+    Route::get('/seasons/current', [SeasonController::class, 'getCurrentSeason'])->name('get current season');
+    Route::get('/seasons', [SeasonController::class, 'getAll'])->name('get all seasons');
 });
 // auth
 Route::group(['middleware' => ['auth:sanctum']], function() {

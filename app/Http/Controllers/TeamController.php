@@ -75,9 +75,14 @@ class TeamController extends Controller {
             return self::noResourceResponse();
         $games = Game::whereHas('teams', function($q) use ($team) {
             $q->where('team_id', $team->id);
-        })->with(['teams' => function ($q) {
-            $q->withPivot(['set_score', 'team_number']);
-        }, 'teams.members'])->get();
+        })->with([
+            'teams' => function ($q) {
+                $q->withPivot(['set_score', 'team_number']);
+            },
+            'teams.members'
+        ])->where('completed_at', '!=', null)
+        ->where('season_id', $season_id)
+            ->orderByDesc('completed_at')->get();
         return self::successfulResponse([
             'team' => [
                 'id' => $team->id,
