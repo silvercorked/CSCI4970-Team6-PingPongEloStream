@@ -13,6 +13,8 @@ use App\Models\Mode;
 use App\Models\Point;
 use App\Models\Season;
 use App\Models\Set;
+use App\Models\Team;
+use App\Models\User;
 
 class GameController extends Controller {
     public function base(Request $request, int $season_id = null) {
