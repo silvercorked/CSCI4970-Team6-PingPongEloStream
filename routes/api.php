@@ -40,14 +40,15 @@ Route::group([], function() {
 
 // public
 Route::group([], function() {
-    Route::get('/leaderboards/singles', [LeaderboardController::class, 'singles'])->name('grabs all singles teams (ordered by current season elo)');
-    Route::get('/leaderboards/singles/season/{season_id}', [LeaderboardController::class, 'singles'])->name('grabs all singles teams (ordered by given season elo)');
-    Route::get('/leaderboards/doubles', [LeaderboardController::class, 'doubles'])->name('grabs all doubles teams (ordered by current season elo)');
-    Route::get('/leaderboards/doubles/season/{season_id}', [LeaderboardController::class, 'doubles'])->name('grabs all doubles teams (ordered by given season elo)');
+    Route::get('/leaderboards/{which}', [LeaderboardController::class, 'base'])
+        ->where('which', '(singles)|(doubles)')->name('grabs all singles teams (ordered by current season elo) with optional pagination');
+    Route::get('/leaderboards/{which}/season/{season_id?}', [LeaderboardController::class, 'base'])
+        ->where('which', '(singles)|(doubles)')->name('grabs all singles teams (ordered by current season elo) with optional pagination');
     Route::get('/modes', [ModeController::class, 'all'])->name('get all modes');
     Route::get('/modes/{mode_id}', [ModeController::class, 'getOne'])->name('get one mode');
-    Route::get('/games', [GameController::class, 'all'])->name('get all games (ordered by most recent)');
-    Route::get('/players', [PlayerController::class, 'all'])->name('get all players');
+    Route::get('/games', [GameController::class, 'base'])->name('get all games (ordered by most recent)');
+    Route::get('/games/season/{season_id}', [GameController::class, 'base'])->name('get set of games for pagination');
+    Route::get('/players', [PlayerController::class, 'base'])->name('get all players (ordered by most recent) with optional pagination');
     Route::get('/games/{game_id}', [GameController::class, 'getOne'])->name('get one game');
     Route::get('/players/{player_id}', [PlayerController::class, 'getOne'])->name('get one player');
     Route::get('/players/{player_id}/teams', [PlayerController::class, 'getProfileInfo'])->name('get profile information for given player');
@@ -61,17 +62,15 @@ Route::group([], function() {
 // auth
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/self', [UserController::class, 'getSelf'])->name('get the user\'s user info');
-    Route::put('/profile', [PlayerController::class, 'updateProfile'])->name('profile.update');
+    Route::put('/profile', [PlayerController::class, 'updateProfile'])->name('edit user\'s profile');
     Route::post('/teams', [TeamController::class, 'store'])->name('create a team');
 });
 // admin
 Route::group(['middleware' => ['auth:sanctum', 'isAdmin']], function() {
     Route::get('/livestream', [LivestreamController::class, 'index'])->name('livestream');
-    Route::get('/games/create', [GameController::class, 'create'])->name('game.create');
-    Route::get('/games/{game_id}/edit', [GameController::class, 'edit'])->name('game.edit');
-    Route::post('/games', [GameController::class, 'store'])->name('game.store');
-    Route::post('/games/play', [GameController::class, 'storeAndPlay'])->name('games.storeAndPlay');
-    Route::put('/games/{game_id}', [GameController::class, 'update'])->name('game.update');
-    Route::get('/games/{game_id}/start-play', [GameController::class, 'play'])->name('game.start');
-    Route::get('/games/{game_id}/playing', [GameController::class, 'playing'])->name('game.playing');
+    Route::post('/games', [GameController::class, 'store'])->name('create a game');
+    Route::put('/games/{game_id}', [GameController::class, 'update'])->name('edit a game that hasn\'t yet been played');
+    Route::get('/games/{game_id}/play', [GameController::class, 'play'])->name('start playing a game');
+    Route::post('/games/{game_id}/playing/sets/{set_number}', [GameController::class, 'progress'])->name('report scores while a game is in progress');
+    Route::post('/games/{game_id}/complete', [GameController::class, 'complete'])->name('complete a game');
 });

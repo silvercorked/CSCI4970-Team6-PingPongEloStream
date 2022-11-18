@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "..\\app\\Http\\Controllers\\PlayerController.php",
     "relative_file": null,
-    "hash": "17547d00960111a84ae752cf07f9007171f82672",
+    "hash": "c811afdf8b5cb9fed57b63db0b9c19922abb9013",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -24,8 +24,8 @@
     "traits": [],
     "properties": [],
     "methods": {
-        "all": {
-            "name": "all",
+        "base": {
+            "name": "base",
             "line": 12,
             "short_desc": null,
             "long_desc": null,
@@ -58,9 +58,9 @@
                 }
             }
         },
-        "getOne": {
-            "name": "getOne",
-            "line": 18,
+        "all": {
+            "name": "all",
+            "line": 20,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -74,7 +74,41 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 18,
+                    "line": 20,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "getOne": {
+            "name": "getOne",
+            "line": 39,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 39,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -92,7 +126,7 @@
                 },
                 "user_id": {
                     "name": "user_id",
-                    "line": 18,
+                    "line": 39,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -107,7 +141,7 @@
         },
         "getProfileInfo": {
             "name": "getProfileInfo",
-            "line": 24,
+            "line": 45,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -121,7 +155,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 24,
+                    "line": 45,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -139,7 +173,7 @@
                 },
                 "player_id": {
                     "name": "player_id",
-                    "line": 24,
+                    "line": 45,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -154,7 +188,7 @@
         },
         "updateProfile": {
             "name": "updateProfile",
-            "line": 33,
+            "line": 54,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -168,7 +202,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 33,
+                    "line": 54,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -188,7 +222,7 @@
         },
         "getSinglesTeamAndUser": {
             "name": "getSinglesTeamAndUser",
-            "line": 36,
+            "line": 57,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -202,7 +236,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 36,
+                    "line": 57,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -220,7 +254,7 @@
                 },
                 "player_id": {
                     "name": "player_id",
-                    "line": 36,
+                    "line": 57,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
