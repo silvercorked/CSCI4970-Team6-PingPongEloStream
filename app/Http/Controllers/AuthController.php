@@ -68,13 +68,24 @@ class AuthController extends Controller {
     public function getAllTokens(Request $request) {
         $user = auth()->user();
         return self::successfulResponse([
-            'tokens' => $user->tokens()
-                ->get()
-                ->map(fn($item) => ['device_name' => $item->name])
+            'tokens' => $user->tokens()->get()
+                ->map(fn($item) => [
+                    'device_name' => $item->name,
+                    'last_used_at' => $item->last_used_at
+                ])
         ]);
     }
     public function revokeAllTokens(Request $request) {
         $user = auth()->user();
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|string'
+        ]);
+        if ($validator->fails())
+            return self::unsuccessfulResponse($validator->errors());
+        if (!Hash::check($request->password, $user->password))
+            return self::unsuccessfulResponse([
+                'password' => ['Invalid Password.']
+            ]);
         $user->tokens()->delete();
         return self::successfulResponse([
             'message' => 'All Tokens successfully deleted.'
