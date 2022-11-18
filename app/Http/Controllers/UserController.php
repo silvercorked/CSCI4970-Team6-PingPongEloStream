@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 
 use App\Models\User;
@@ -53,5 +54,14 @@ class UserController extends Controller {
         return self::successfulResponse([
             'user' => $user
         ]);
+    }
+    public function deleteUser(Request $request) {
+        $user = auth()->user();
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|string'
+        ]);
+        if (!Hash::check($request->password, $user->password))
+            return self::unsuccessfulResponse('Invalid Password');
+        return self::unsuccessfulResponse('not yet implemented');
     }
 }
