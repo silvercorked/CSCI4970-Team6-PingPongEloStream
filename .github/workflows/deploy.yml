@@ -100,5 +100,5 @@ jobs:
         run: |
           touch release.tar.gz
           tar --exclude=./release.tar.gz -czf release.tar.gz .
-          scp release.tar.gz staging:/var/www/html
-          ssh staging "ls -al & sudo tar -xf /var/www/html/release.tar.gz -C /var/www/html/ && rm /var/www/html/release.tar.gz && cd /var/www/html/ && php artisan key:generate"
+          scp release.tar.gz staging:/home/ubuntu
+          ssh staging "mv release.tar.gz atticpingpong.com/ && cd atticpingpong.com/ && tar -xf release.tar.gz && rm release.tar.gz && php artisan key:generate"
