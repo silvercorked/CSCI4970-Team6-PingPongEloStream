@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>App\Http\Controllers\GameController | CSCI 4970 Ping Pong Elo Stream API</title>
+    <title>App\Http\Controllers\SeasonController | CSCI 4970 Ping Pong Elo Stream API</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
 
     </head>
 
-    <body id="class" data-name="class:App_Http_Controllers_GameController" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
+    <body id="class" data-name="class:App_Http_Controllers_SeasonController" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -75,18 +75,18 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../App.html">App</a></li><li class="backslash">\</li><li><a href="../../../App/Http.html">Http</a></li><li class="backslash">\</li><li><a href="../../../App/Http/Controllers.html">Controllers</a></li><li class="backslash">\</li><li>GameController</li>
+                        <li><a href="../../../App.html">App</a></li><li class="backslash">\</li><li><a href="../../../App/Http.html">Http</a></li><li class="backslash">\</li><li><a href="../../../App/Http/Controllers.html">Controllers</a></li><li class="backslash">\</li><li>SeasonController</li>
             </ol>
         </div>
                 <div id="page-content">
     <div class="page-header">
-        <h1>GameController    
+        <h1>SeasonController    
             </h1>
     </div>
 
     
     <p>        class
-    <strong>GameController</strong>        extends <a href="../../../App/Http/Controllers/Controller.html"><abbr title="App\Http\Controllers\Controller">Controller</abbr></a>
+    <strong>SeasonController</strong>        extends <a href="../../../App/Http/Controllers/Controller.html"><abbr title="App\Http\Controllers\Controller">Controller</abbr></a>
 </p>
 
         
@@ -184,7 +184,7 @@
                     
                 </div>
                 <div class="col-md-8">
-                    <a href="#method_base">base</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $season_id = null)
+                    <a href="#method_getCurrentSeason">getCurrentSeason</a>()
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -195,84 +195,7 @@
                     
                 </div>
                 <div class="col-md-8">
-                    <a href="#method_all">all</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, <abbr title="App\Http\Controllers\string|null">string|null</abbr> $type, <abbr title="App\Http\Controllers\int|null">int|null</abbr> $season_id)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_paginated">paginated</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $page, int $size, <abbr title="App\Http\Controllers\string|null">string|null</abbr> $type, <abbr title="App\Http\Controllers\int|null">int|null</abbr> $season_id)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_getOne">getOne</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $game_id)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_store">store</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_update">update</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $game_id)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_play">play</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $game_id)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_progress">progress</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $game_id, int $set_number)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_complete">complete</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $game_id)
+                    <a href="#method_getAll">getAll</a>()
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -512,10 +435,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_base">
-        <div class="location">at line 20</div>
+                    <h3 id="method_getCurrentSeason">
+        <div class="location">at line 10</div>
         <code>                    
-    <strong>base</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $season_id = null)
+    <strong>getCurrentSeason</strong>()
         </code>
     </h3>
     <div class="details">    
@@ -527,21 +450,6 @@
                     
         </div>
         <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>int</td>
-                <td>$season_id</td>
-                <td></td>
-            </tr>
-            </table>
-
             
             
             
@@ -551,10 +459,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_all">
-        <div class="location">at line 29</div>
+                    <h3 id="method_getAll">
+        <div class="location">at line 18</div>
         <code>                    
-    <strong>all</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, <abbr title="App\Http\Controllers\string|null">string|null</abbr> $type, <abbr title="App\Http\Controllers\int|null">int|null</abbr> $season_id)
+    <strong>getAll</strong>()
         </code>
     </h3>
     <div class="details">    
@@ -566,314 +474,6 @@
                     
         </div>
         <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td><abbr title="App\Http\Controllers\string|null">string|null</abbr></td>
-                <td>$type</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td><abbr title="App\Http\Controllers\int|null">int|null</abbr></td>
-                <td>$season_id</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_paginated">
-        <div class="location">at line 52</div>
-        <code>                    
-    <strong>paginated</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $page, int $size, <abbr title="App\Http\Controllers\string|null">string|null</abbr> $type, <abbr title="App\Http\Controllers\int|null">int|null</abbr> $season_id)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>int</td>
-                <td>$page</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>int</td>
-                <td>$size</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td><abbr title="App\Http\Controllers\string|null">string|null</abbr></td>
-                <td>$type</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td><abbr title="App\Http\Controllers\int|null">int|null</abbr></td>
-                <td>$season_id</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getOne">
-        <div class="location">at line 78</div>
-        <code>                    
-    <strong>getOne</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $game_id)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$game_id</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_store">
-        <div class="location">at line 84</div>
-        <code>                    
-    <strong>store</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_update">
-        <div class="location">at line 119</div>
-        <code>                    
-    <strong>update</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $game_id)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$game_id</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_play">
-        <div class="location">at line 153</div>
-        <code>                    
-    <strong>play</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $game_id)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$game_id</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_progress">
-        <div class="location">at line 165</div>
-        <code>                    
-    <strong>progress</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, int $game_id, int $set_number)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>int</td>
-                <td>$game_id</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>int</td>
-                <td>$set_number</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_complete">
-        <div class="location">at line 250</div>
-        <code>                    
-    <strong>complete</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $game_id)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$game_id</td>
-                <td></td>
-            </tr>
-            </table>
-
             
             
             

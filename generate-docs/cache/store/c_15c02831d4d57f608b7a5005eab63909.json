@@ -1,0 +1,58 @@
+{
+    "name": "App\\Http\\Controllers\\SeasonController",
+    "line": 9,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": "..\\app\\Http\\Controllers\\SeasonController.php",
+    "relative_file": null,
+    "hash": "efe7013e224d2f223b26ce8292efb0e8b8451f97",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Season": "App\\Models\\Season"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "getCurrentSeason": {
+            "name": "getCurrentSeason",
+            "line": 10,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getAll": {
+            "name": "getAll",
+            "line": 18,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

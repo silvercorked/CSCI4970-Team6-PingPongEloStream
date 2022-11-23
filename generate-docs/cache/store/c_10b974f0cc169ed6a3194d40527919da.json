@@ -8,7 +8,7 @@
     "namespace": "Database\\Seeders",
     "file": "..\\database\\seeders\\GameSeeder.php",
     "relative_file": null,
-    "hash": "63b332756cb13ddc640d0fc0553f4d8bd7ca8ac8",
+    "hash": "a58d981ed2e72fcdf48a31b524e7b210c0984189",
     "parent": "Illuminate\\Database\\Seeder",
     "modifiers": 0,
     "is_trait": false,
