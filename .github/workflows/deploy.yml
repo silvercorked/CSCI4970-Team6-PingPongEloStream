@@ -101,7 +101,7 @@ jobs:
           touch release.tar.gz
           tar --exclude=./release.tar.gz -czf release.tar.gz .
           scp release.tar.gz staging:/home/ubuntu
-          ssh staging "mv release.tar.gz backend.atticpingpong.com/ && cd backend.atticpingpong.com && sudo tar -xf release.tar.gz && cd .. && sudo chown -R www-data:www-data backend.atticpingpong.com/ && cd backend.atticpingpong.com && sudo rm release.tar.gz"
+          ssh staging "mv release.tar.gz backend.atticpingpong.com/ && cd backend.atticpingpong.com && sudo tar -xf release.tar.gz && cd .. && sudo chown -R www-data:www-data backend.atticpingpong.com/ && sudo chmod -R 777 backend.atticpingpong.com/ && cd backend.atticpingpong.com && sudo rm release.tar.gz"
           
           
           
