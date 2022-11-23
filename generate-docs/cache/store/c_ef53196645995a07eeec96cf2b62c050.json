@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "..\\app\\Http\\Controllers\\PlayerController.php",
     "relative_file": null,
-    "hash": "c811afdf8b5cb9fed57b63db0b9c19922abb9013",
+    "hash": "f45294d1823015db68ab35c56b1365f20aa9dd72",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,

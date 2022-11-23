@@ -1,6 +1,6 @@
 {
     "name": "App\\Http\\Controllers\\TeamController",
-    "line": 12,
+    "line": 14,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "..\\app\\Http\\Controllers\\TeamController.php",
     "relative_file": null,
-    "hash": "19b2e25faaf5db7f79da9a300430f1d747126dd8",
+    "hash": "3373e103ffda5acbc1942d912fba58fa2a4ffd02",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -18,6 +18,8 @@
         "Request": "Illuminate\\Http\\Request",
         "Validator": "Validator",
         "Game": "App\\Models\\Game",
+        "Season": "App\\Models\\Season",
+        "SeasonalElo": "App\\Models\\SeasonalElo",
         "Team": "App\\Models\\Team",
         "User": "App\\Models\\User"
     },
@@ -28,7 +30,7 @@
     "methods": {
         "all": {
             "name": "all",
-            "line": 13,
+            "line": 15,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -43,7 +45,7 @@
         },
         "getOne": {
             "name": "getOne",
-            "line": 16,
+            "line": 18,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -57,7 +59,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 16,
+                    "line": 18,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -75,7 +77,7 @@
                 },
                 "team_id": {
                     "name": "team_id",
-                    "line": 16,
+                    "line": 18,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -90,7 +92,7 @@
         },
         "getTeamFromPlayers": {
             "name": "getTeamFromPlayers",
-            "line": 22,
+            "line": 24,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -104,7 +106,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 22,
+                    "line": 24,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -124,7 +126,7 @@
         },
         "store": {
             "name": "store",
-            "line": 40,
+            "line": 42,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -138,7 +140,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 40,
+                    "line": 42,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -158,7 +160,7 @@
         },
         "getTeamGames": {
             "name": "getTeamGames",
-            "line": 64,
+            "line": 72,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -172,7 +174,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 64,
+                    "line": 72,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -190,7 +192,7 @@
                 },
                 "team_id": {
                     "name": "team_id",
-                    "line": 64,
+                    "line": 72,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -203,7 +205,7 @@
                 },
                 "season_id": {
                     "name": "season_id",
-                    "line": 64,
+                    "line": 72,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,

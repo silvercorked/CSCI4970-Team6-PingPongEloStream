@@ -8,7 +8,7 @@
     "namespace": "App\\Providers",
     "file": "..\\app\\Providers\\ELOServiceProvider.php",
     "relative_file": null,
-    "hash": "2507c64de23d642e50fd26134910fb36b27ac5e4",
+    "hash": "b1d30a2d98f1c8e6a7c3824f8ee95213fbbe7798",
     "parent": "Illuminate\\Support\\ServiceProvider",
     "modifiers": 0,
     "is_trait": false,

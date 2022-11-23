@@ -65,6 +65,62 @@ ports:
             - `php artisan migrate:fresh --seed` (deletes current db, migrates db, seeds db)
         - view on site
 
+## Initial Server Deployment Process (Ubuntu 22.04)
+- First, update the server. `sudo apt-get update`
+- Install Apache `sudo apt-get install apache2`
+- Install PHP `sudo apt-get install php` (tested on Version 8.1.2)
+- Install PHP extensions `sudo apt-get install php8.1-cli php8.1-common php8.1-curl php8.1-gd php8.1-mbstring php8.1-intl php8.1-mysql php8.1-xml php8.1-zip`
+- Modify apache install to allow it to handle index.php files `sudo vim /etc/apache2/mods-enabled/dir.conf`
+    - add "index.php" to DirectoryIndex list (can also replace the list if you want)
+```
+<IfModule mod_dir.c>
+    DirectoryIndex index.php 
+</IfModule>
+```
+- Install mysql server `sudo apt-get install mysql-server`
+- Open mysql to Edit password on Root user `sudo mysql`
+    - `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'put your db password here';`
+- Do the proper mysql installation `sudo mysql_secure_installation`
+    - Validate Password Component: No
+    - Change Root Password: No
+    - Anonymous User: Remove
+    - Disable remote Root login: Yes
+    - Remove Test Database: Yes
+    - Reload Privilege Tables: Yes
+- Login to mysql `mysql -u root -p`
+    - Create base db `CREATE DATABASE pingpong_db`
+- Use the command line installation of composer: https://getcomposer.org/download/
+    - It will look like this:
+        - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        - php -r "if (hash_file('{HASH ALGORITHM.}', 'composer-setup.php') === '{SPECIAL HASH CHECK. COMPOSER VERSION DEPENDENT}') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+        - php composer-setup.php
+        - php -r "unlink('composer-setup.php');"
+        - sudo mv composer.phar /usr/local/bin/composer
+- Create project folder in user directory `cd ~ && mkdir atticpingpong.com`
+- Run Deployment Script in github workflow
+- Get into project folder `cd ~/atticpingpong.com`
+- Install Dependencies `composer install`
+- Link Storage `php artisan storage:link`
+- Migrate DB `php artisan migrate`
+- Seed DB `php artisan db:seed`
+- Change ownership of website folder and contents `sudo chown -R www-data:www-data atticpingpong.com/`
+- Edit apache site config `sudo vim /etc/apache2/sites-available/000-default.conf`
+```DocumentRoot /home/ubuntu/backend.atticpingpong.com/public/ServerName backend.atticpingpong.com
+ServerAlias backend.atticpingpong.com
+<Directory /home/ubuntu/backend.atticpingpong.com/public>
+	Options FollowSymLinks
+	AllowOverride all
+	Require all granted
+</Directory>
+```
+- Restart apache to allow changes to be recognized `sudo systemctl restart apache2`
+- Download Let's Encrypt cert CLI for SSL `sudo apt install certbot python3-certbot-apache`
+- Run Let's Encrypt cert CLI `sudo certbot --apache`
+    - Add email
+    - Terms of Service: Yes
+    - Share email: No
+    - Select Website: (pick number associated with 'backend.atticpingpong.com')
+
 ## Frameworks
 - Vue 3
 - Boostrap CSS 5
