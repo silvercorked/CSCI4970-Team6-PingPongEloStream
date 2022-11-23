@@ -1,6 +1,6 @@
 {
     "name": "App\\Http\\Controllers\\GameController",
-    "line": 15,
+    "line": 19,
     "short_desc": null,
     "long_desc": null,
     "hint": null,
@@ -8,19 +8,23 @@
     "namespace": "App\\Http\\Controllers",
     "file": "..\\app\\Http\\Controllers\\GameController.php",
     "relative_file": null,
-    "hash": "b36aaeb7f2f94a3ab1e69441179cba757db2d7f5",
+    "hash": "f7e7aa883c4aec8859d689998e93960ea7805016",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
     "is_interface": false,
     "is_read_only": false,
     "aliases": {
-        "Inertia": "Inertia\\Inertia",
         "Request": "Illuminate\\Http\\Request",
+        "Rule": "Illuminate\\Validation\\Rule",
+        "Carbon": "Carbon\\Carbon",
         "Validator": "Validator",
+        "ELO": "ELO",
         "Game": "App\\Models\\Game",
         "Mode": "App\\Models\\Mode",
+        "Point": "App\\Models\\Point",
         "Season": "App\\Models\\Season",
+        "Set": "App\\Models\\Set",
         "Team": "App\\Models\\Team",
         "User": "App\\Models\\User"
     },
@@ -31,7 +35,7 @@
     "methods": {
         "base": {
             "name": "base",
-            "line": 16,
+            "line": 20,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -45,7 +49,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 16,
+                    "line": 20,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -63,7 +67,7 @@
                 },
                 "season_id": {
                     "name": "season_id",
-                    "line": 16,
+                    "line": 20,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -83,7 +87,7 @@
         },
         "all": {
             "name": "all",
-            "line": 25,
+            "line": 29,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -97,7 +101,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 25,
+                    "line": 29,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -115,7 +119,7 @@
                 },
                 "type": {
                     "name": "type",
-                    "line": 25,
+                    "line": 29,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -133,7 +137,7 @@
                 },
                 "season_id": {
                     "name": "season_id",
-                    "line": 25,
+                    "line": 29,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -153,7 +157,7 @@
         },
         "paginated": {
             "name": "paginated",
-            "line": 48,
+            "line": 52,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -167,7 +171,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 48,
+                    "line": 52,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -185,7 +189,7 @@
                 },
                 "page": {
                     "name": "page",
-                    "line": 48,
+                    "line": 52,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -203,7 +207,7 @@
                 },
                 "size": {
                     "name": "size",
-                    "line": 48,
+                    "line": 52,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -221,7 +225,7 @@
                 },
                 "type": {
                     "name": "type",
-                    "line": 48,
+                    "line": 52,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -239,7 +243,7 @@
                 },
                 "season_id": {
                     "name": "season_id",
-                    "line": 48,
+                    "line": 52,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -259,7 +263,7 @@
         },
         "getOne": {
             "name": "getOne",
-            "line": 74,
+            "line": 78,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -273,7 +277,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 74,
+                    "line": 78,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -291,7 +295,7 @@
                 },
                 "game_id": {
                     "name": "game_id",
-                    "line": 74,
+                    "line": 78,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -306,7 +310,7 @@
         },
         "store": {
             "name": "store",
-            "line": 80,
+            "line": 84,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -320,7 +324,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 80,
+                    "line": 84,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -340,7 +344,7 @@
         },
         "update": {
             "name": "update",
-            "line": 115,
+            "line": 119,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -354,7 +358,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 115,
+                    "line": 119,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -372,7 +376,7 @@
                 },
                 "game_id": {
                     "name": "game_id",
-                    "line": 115,
+                    "line": 119,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -387,7 +391,7 @@
         },
         "play": {
             "name": "play",
-            "line": 146,
+            "line": 153,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -401,7 +405,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 146,
+                    "line": 153,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -419,7 +423,7 @@
                 },
                 "game_id": {
                     "name": "game_id",
-                    "line": 146,
+                    "line": 153,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -434,22 +438,7 @@
         },
         "progress": {
             "name": "progress",
-            "line": 158,
-            "short_desc": null,
-            "long_desc": null,
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "see": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": []
-        },
-        "complete": {
-            "name": "complete",
-            "line": 161,
+            "line": 165,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -463,7 +452,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 161,
+                    "line": 165,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -481,7 +470,77 @@
                 },
                 "game_id": {
                     "name": "game_id",
-                    "line": 161,
+                    "line": 165,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "set_number": {
+                    "name": "set_number",
+                    "line": 165,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "complete": {
+            "name": "complete",
+            "line": 250,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 250,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                },
+                "game_id": {
+                    "name": "game_id",
+                    "line": 250,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,

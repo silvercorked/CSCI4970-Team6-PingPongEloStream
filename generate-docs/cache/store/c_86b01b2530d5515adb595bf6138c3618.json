@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers",
     "file": "..\\app\\Http\\Controllers\\LeaderboardController.php",
     "relative_file": null,
-    "hash": "9b2ea80f37aadf4b2bdc7901b1f2934d6e950aa0",
+    "hash": "721ba6fa39aa85e79f24d62d44fa8d3319454a64",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -438,9 +438,61 @@
                 }
             }
         },
+        "getTeamsStats": {
+            "name": "getTeamsStats",
+            "line": 99,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "teams": {
+                    "name": "teams",
+                    "line": 99,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Database\\Eloquent\\Collection",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": true,
+                    "is_read_only": false
+                },
+                "season_id": {
+                    "name": "season_id",
+                    "line": 99,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "int",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
         "getLeaderboardTeams": {
             "name": "getLeaderboardTeams",
-            "line": 96,
+            "line": 118,
             "short_desc": null,
             "long_desc": null,
             "hint": null,
@@ -454,7 +506,7 @@
             "parameters": {
                 "teamSize": {
                     "name": "teamSize",
-                    "line": 96,
+                    "line": 118,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -472,7 +524,7 @@
                 },
                 "season": {
                     "name": "season",
-                    "line": 96,
+                    "line": 118,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
