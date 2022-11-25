@@ -27,7 +27,7 @@ class UserController extends Controller {
                 Rule::unique('users')->ignore($user->id)
             ],
             'photo' => [
-                'required',
+                'sometimes',
                 File::image()
                     ->min(1) // 1KB
                     ->max(2 * 1024) // 2MB
@@ -35,18 +35,20 @@ class UserController extends Controller {
         ]);
         if ($validator->fails())
             return self::unsuccessfulResponse($validator->errors());
-        if (User::hasCustomPhoto($user) && Storage::disk('public')->exists($user->profile_photo_path)) { // need to delete old photo
-            $res = Storage::disk('public')->delete($user->profile_photo_path);
+        if ($request->file('photo')) {
+            if (User::hasCustomPhoto($user) && Storage::disk('public')->exists($user->profile_photo_path)) { // need to delete old photo
+                $res = Storage::disk('public')->delete($user->profile_photo_path);
+            }
+            $filename = now()->format('Y-m-d\TH-i-s-u\Z') . '.' . $request->file('photo')->extension();
+            $user->profile_photo_path = $filename;
+            $res = Storage::disk('public')->putFileAs(
+                '',
+                $request->file('photo'),
+                $user->profile_photo_path
+            );
+            if (!$res)
+                return self::unsuccessfulResponse('Failed to save image.');
         }
-        $filename = now()->format('Y-m-d\TH-i-s-u\Z') . '.' . $request->file('photo')->extension();
-        $user->profile_photo_path = $filename;
-        $res = Storage::disk('public')->putFileAs(
-            '',
-            $request->file('photo'),
-            $user->profile_photo_path
-        );
-        if (!$res)
-            return self::unsuccessfulResponse('Failed to save image.');
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
