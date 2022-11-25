@@ -76,7 +76,9 @@ class GameController extends Controller {
         ]);
     }
     public function getOne(Request $request, $game_id) {
-        $game = Game::with(['sets', 'sets.points', 'teams', 'teams.members'])->find($game_id);
+        $game = Game::with(['sets', 'sets.points', 'teams' => function ($q) {
+            $q->withPivot('team_number')->orderBy('team_number');
+        }, 'teams.members'])->find($game_id);
         return self::successfulResponse([
             'game' => $game
         ]);
