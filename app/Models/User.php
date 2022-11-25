@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Team;
 
@@ -47,14 +49,11 @@ class User extends Authenticatable {
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array
-     */
-    //protected $appends = [
-    //    'profile_photo_url',
-    //];
+    protected $appends = ['profile_photo_url'];
+
+    public static function hasCustomPhoto(User $u) {
+        return !str_starts_with($u->profile_photo_path, 'https://xsgames.co/randomusers/assets/avatars/');
+    }
 
     public function teams() {
         return $this->belongsToMany(
@@ -62,4 +61,14 @@ class User extends Authenticatable {
         );
     }
     // has relation to games in which was first server via team1_first_server and team2_first_server
+
+    protected function profilePhotoUrl(): Attribute {
+        return Attribute::make(
+            get: function () {
+                if (User::hasCustomPhoto($this))
+                    return env('APP_URL', '') . Storage::url($this->profile_photo_path);
+                return $this->profile_photo_path; // default avatar
+            }
+        );
+    }
 }

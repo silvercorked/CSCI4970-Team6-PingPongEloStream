@@ -91,7 +91,7 @@ class TeamController extends Controller {
                         'id' => $m->id,
                         'name' => $m->name,
                         'email' => $m->email,
-                        'profile_photo_path' => $m->profile_photo_path
+                        'profile_photo_url' => $m->profile_photo_url
                     ];
                 })
             ],
@@ -145,7 +145,7 @@ class TeamController extends Controller {
                                 'id' => $m->id,
                                 'name' => $m->name,
                                 'email' => $m->email,
-                                'profile_photo_path' => $m->profile_photo_path
+                                'profile_photo_url' => $m->profile_photo_url
                             ];
                         })
                     ]
