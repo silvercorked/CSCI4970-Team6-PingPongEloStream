@@ -53,26 +53,26 @@ class GameController extends Controller {
         if ($page < 0) $page = 1;
         $page--; // page 1 starts at offset 0, so page X is actually offset $size * (x - 1)
         if ($size <= 0) $size = 15;
-        $baseQuery = self::getPaginated($page, $size, Game::with([
+        $baseQuery = Game::with([
             'teams' => function ($q) {
                 $q->withPivot('set_score');
             }, 'teams.members',
-        ]))->orderByDesc('updated_at');
+        ])->orderByDesc('updated_at');
         if ($season_id)
             $baseQuery->where('season_id', $season_id);
-        $result;
-        if (!$type) // if type not set, do pagination for all
-            $result = $baseQuery->get();
-        else if ($type == 'scheduled') // can't be unstarted but complete, so only 1 where needed
-            $result = $baseQuery->where('started_at', null)->get();
-        else if ($type == 'playing')
-            $result = $baseQuery->where('started_at', '!=', null)->where('completed_at', null)->get();
-        else if ($type == 'completed')
-            $result = $baseQuery->where('completed_at', '!=', null)->get();
-        else
-            return self::unsuccessfulResponse('Allowed types are \'\', \'scheduled\', \'playing\', \'completed\'.');
+        if ($type) {
+            if ($type == 'scheduled') // can't be unstarted but complete, so only 1 where needed
+                $baseQuery->where('started_at', null);
+            else if ($type == 'playing')
+                $baseQuery->where('started_at', '!=', null)->where('completed_at', null);
+            else if ($type == 'completed')
+                $baseQuery->where('completed_at', '!=', null);
+            else
+                return self::unsuccessfulResponse('Allowed types are \'\', \'scheduled\', \'playing\', \'completed\'.');
+        }
         return self::successfulResponse([
-            'games' => $result
+            'games' => self::getPaginated($page, $size, $baseQuery->clone())->get(),
+            'totalPages' => ceil($baseQuery->count() / $size)
         ]);
     }
     public function getOne(Request $request, $game_id) {

@@ -27,13 +27,15 @@ class PlayerController extends Controller {
         if ($page < 0) $page = 1;
         $page--; // page 1 starts at offset 0, so page X is actually offset $size * (x - 1)
         if ($size <= 0) $size = 15;
+        $baseQuery = User::orderBy('created_at');
         $users = self::getPaginated(
             $page,
             $size,
-            User::orderBy('created_at')
+            $baseQuery->clone()
         )->get();
         return self::successfulResponse([
-            'players' => $users
+            'players' => $users,
+            'totalPages' => ceil($baseQuery->count() / $size)
         ]);
     }
     public function getOne(Request $request, $user_id) {
