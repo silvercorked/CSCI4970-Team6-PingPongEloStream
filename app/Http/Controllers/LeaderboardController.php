@@ -63,14 +63,16 @@ class LeaderboardController extends Controller {
         if ($page < 0) $page = 1;
         $page--; // page 1 starts at offset 0, so page X is actually offset $size * (x - 1)
         if ($size <= 0) $size = 15;
+        $baseQuery = self::getLeaderboardTeams($playerCount, $season);
         $teams = self::getPaginated(
             $page,
             $size,
-            self::getLeaderboardTeams($playerCount, $season)
+            $baseQuery->clone()
         )->get();
         return self::successfulResponse([
             'teams' => self::mapResults($teams, $season),
-            'season_number' => $season->id
+            'season_number' => $season->id,
+            'totalPages' => ceil($baseQuery->count() / $size)
         ]);
     }
     public function singles(Request $request, Season $season) {
