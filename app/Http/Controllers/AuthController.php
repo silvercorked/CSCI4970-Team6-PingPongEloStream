@@ -9,6 +9,8 @@ use Validator;
 use Illuminate\Validation\Rules\Password;
 
 use App\Models\User;
+use App\Models\Team;
+use App\Models\SeasonalElo;
 
 class AuthController extends Controller {
     public function register(Request $request) {
@@ -20,11 +22,23 @@ class AuthController extends Controller {
         ]);
         if ($validator->fails())
             return self::unsuccessfulResponse($validator->errors());
+        $season = Season::current();
         $user = new User();
+        $team = new Team();
+        $elo = new SeasonalElo();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
+        $user->profile_photo_path = 'https://xsgames.co/randomusers/assets/avatars/'
+            + rand(0, 1) == 1 ? 'male' : 'female'
+            + '/' + rand(0, 74) + '.jpg'; // default image
         $user->save();
+        $team->save();
+        $elo->elo = 1500;
+        $elo->season_id = $season->id;
+        $elo->team_id = $team->id;
+        $elo->save();
+        $team->members()->attach($ids);
         return self::successfulResponse([
             'token' => $user->createToken($request->device_name)->plainTextToken
         ]);
