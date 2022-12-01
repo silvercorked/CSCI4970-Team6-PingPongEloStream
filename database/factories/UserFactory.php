@@ -24,8 +24,8 @@ class UserFactory extends Factory
     public function definition()
     {
         $pic_url = 'https://xsgames.co/randomusers/assets/avatars/'
-            + rand(0, 1) == 1 ? 'male' : 'female'
-            + '/' + rand(0, 74) + '.jpg';
+            . rand(0, 1) == 1 ? 'male' : 'female'
+            . '/' . rand(0, 74) . '.jpg';
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),

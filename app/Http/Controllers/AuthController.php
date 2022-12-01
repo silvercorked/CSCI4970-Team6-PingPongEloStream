@@ -30,8 +30,8 @@ class AuthController extends Controller {
         $user->email = $request->email;
         $user->password = $request->password;
         $user->profile_photo_path = 'https://xsgames.co/randomusers/assets/avatars/'
-            + rand(0, 1) == 1 ? 'male' : 'female'
-            + '/' + rand(0, 74) + '.jpg'; // default image
+            . rand(0, 1) == 1 ? 'male' : 'female'
+            . '/' . rand(0, 74) . '.jpg'; // default image
         $user->save();
         $team->save();
         $elo->elo = 1500;
