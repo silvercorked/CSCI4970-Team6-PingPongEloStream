@@ -9,6 +9,7 @@ use Validator;
 use Illuminate\Validation\Rules\Password;
 
 use App\Models\User;
+use App\Models\Season;
 use App\Models\Team;
 use App\Models\SeasonalElo;
 
@@ -38,7 +39,7 @@ class AuthController extends Controller {
         $elo->season_id = $season->id;
         $elo->team_id = $team->id;
         $elo->save();
-        $team->members()->attach($ids);
+        $team->members()->attach($user->id);
         return self::successfulResponse([
             'token' => $user->createToken($request->device_name)->plainTextToken
         ]);
