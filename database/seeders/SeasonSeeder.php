@@ -19,7 +19,7 @@ class SeasonSeeder extends Seeder {
         $season->created_at = now()->subMinutes(1);
         $season->updated_at = $season->created_at;
         $season->save();
-        $season2 = new Season();
-        $season2->save();
+        //$season2 = new Season();
+        //$season2->save();
     }
 }

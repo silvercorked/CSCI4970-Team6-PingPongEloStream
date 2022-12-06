@@ -57,16 +57,16 @@ class GameController extends Controller {
             'teams' => function ($q) {
                 $q->withPivot('set_score');
             }, 'teams.members',
-        ])->orderByDesc('updated_at');
+        ]);
         if ($season_id)
             $baseQuery->where('season_id', $season_id);
         if ($type) {
             if ($type == 'scheduled') // can't be unstarted but complete, so only 1 where needed
-                $baseQuery->where('started_at', null);
+                $baseQuery->where('started_at', null)->orderByDesc('updated_at');
             else if ($type == 'playing')
-                $baseQuery->where('started_at', '!=', null)->where('completed_at', null);
+                $baseQuery->where('started_at', '!=', null)->where('completed_at', null)->orderByDesc('started_at');
             else if ($type == 'completed')
-                $baseQuery->where('completed_at', '!=', null);
+                $baseQuery->where('completed_at', '!=', null)->orderByDesc('completed_at');
             else
                 return self::unsuccessfulResponse('Allowed types are \'\', \'scheduled\', \'playing\', \'completed\'.');
         }
