@@ -62,7 +62,7 @@ class GameController extends Controller {
             $baseQuery->where('season_id', $season_id);
         if ($type) {
             if ($type == 'scheduled') // can't be unstarted but complete, so only 1 where needed
-                $baseQuery->where('started_at', null)->orderByDesc('updated_at');
+                $baseQuery->where('started_at', null);
             else if ($type == 'playing')
                 $baseQuery->where('started_at', '!=', null)->where('completed_at', null)->orderByDesc('started_at');
             else if ($type == 'completed')
@@ -71,7 +71,7 @@ class GameController extends Controller {
                 return self::unsuccessfulResponse('Allowed types are \'\', \'scheduled\', \'playing\', \'completed\'.');
         }
         return self::successfulResponse([
-            'games' => self::getPaginated($page, $size, $baseQuery->clone())->get(),
+            'games' => self::getPaginated($page, $size, $baseQuery->orderByDesc('updated_at')->clone())->get(),
             'totalPages' => ceil($baseQuery->count() / $size)
         ]);
     }
