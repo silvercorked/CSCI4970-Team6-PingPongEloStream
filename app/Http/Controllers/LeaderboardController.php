@@ -102,6 +102,7 @@ class LeaderboardController extends Controller {
         $teams->load([
             'games' => function ($q) use ($season_id) {
                 $q->where('season_id', $season_id)
+                    ->whereNotNull('completed_at')
                     ->withPivot('set_score');
             }, 'games.mode'
         ]);
